@@ -9,6 +9,7 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - starship
 - hyprland
 - waybar
+- qutebrowser
 
 ## Credits
 > see youtube link below for GNU stow tutorial referenced
