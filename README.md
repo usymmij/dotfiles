@@ -7,6 +7,8 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - kitty
 - spicetify
 - starship
+- hyprland
+- waybar
 
 ## Credits
 > see youtube link below for GNU stow tutorial referenced
@@ -24,5 +26,5 @@ git clone https://github.com/spicetify/spicetify-themes .
 
 ### [cool video](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
 
-
-
+## Package list
+- fastfetch 
