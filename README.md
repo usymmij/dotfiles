@@ -6,6 +6,12 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - neovim
 - kitty
 - spicetify
+- starship
+
+## Credits
+> see youtube link below for GNU stow tutorial referenced
+
+> kickstarted using SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
 
 ## Spicetify
 - under `.config/spicetify/Themes`, make sure to install [spicetify-themes](https://github.com/spicetify/spicetify-themes)
