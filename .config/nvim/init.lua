@@ -698,7 +698,7 @@ vim.api.nvim_set_keymap("n", "<C-`>", "<C-W><Down>i", {});
 vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
 
 -- Latex auto render
-vim.api.nvim_set_keymap("n", "ltr", ":!pdflatex '" .. vim.api.nvim_buf_get_name(0) .. "'<Enter>", {});
+vim.api.nvim_set_keymap("n", "rlt", ":!pdflatex '" .. vim.api.nvim_buf_get_name(0) .. "'<Enter>", {});
 
 -- netrw tree expansion by default
 vim.g.netrw_liststyle = 3;

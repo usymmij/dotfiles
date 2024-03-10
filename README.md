@@ -33,3 +33,14 @@ git clone https://github.com/spicetify/spicetify-themes .
 - openssh
 - spotify
 - discord
+- sbctl (when secure boot is needed)
+- candy-icons
+- Sweet KDE theme
+- kvantum
+- qt6ct
+- syncthing
+
+## Settings
+> /etc/environment
+
+`QT_QPA_PLATFORMTHEME=qt6ct`
