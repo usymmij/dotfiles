@@ -1,0 +1,1 @@
+.scripts/wayland-discord.sh
