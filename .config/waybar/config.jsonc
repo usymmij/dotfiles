@@ -75,19 +75,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": [],
-            "10": []
-        }
-    },
+   },
     
     "tray": {
         "icon-size": 18,
@@ -143,7 +131,7 @@
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+		"format": "{icon} {volume}%",
         "format-muted": "",
         "on-click": "pamixer -t",
         "on-click-right": "pavucontrol",
