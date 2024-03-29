@@ -12,7 +12,8 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - qutebrowser
 
 ## Credits
-> see youtube link below for GNU stow tutorial referenced
+> see [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy) for GNU stow tutorial referenced
+
 
 > kickstarted using SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
 
@@ -25,7 +26,21 @@ cd ~/.config/spicetify/Themes
 git clone https://github.com/spicetify/spicetify-themes .
 ```
 
-### [cool video](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
 
-## Package list
+## other packages
+> just a quick list for me to install when setting up my systems
 - fastfetch 
+- openssh
+- spotify
+- discord
+- sbctl (when secure boot is needed)
+- candy-icons
+- Sweet KDE theme
+- kvantum
+- qt6ct
+- syncthing
+
+## Settings
+> /etc/environment
+
+`QT_QPA_PLATFORMTHEME=qt6ct`
