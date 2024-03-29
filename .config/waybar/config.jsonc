@@ -133,7 +133,7 @@
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+		"format": "{icon} {volume}%",
         "format-muted": "",
         "on-click": "pamixer -t",
         "on-click-right": "pavucontrol",

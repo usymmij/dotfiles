@@ -15,7 +15,7 @@ use GNU `stow` for managing my dotfiles that I want to keep
 > see [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy) for GNU stow tutorial referenced
 
 
-> kickstarted using SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
+> boostrapped using SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
 
 ## Spicetify
 - under `.config/spicetify/Themes`, make sure to install [spicetify-themes](https://github.com/spicetify/spicetify-themes)

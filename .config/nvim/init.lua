@@ -65,16 +65,13 @@ vim.opt.rtp:prepend(lazypath)
 --  You can configure plugins using the `config` key.
 --
 --  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
+--    as they will be available in your neovim runtime
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -261,12 +258,16 @@ require('lazy').setup({
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
+    ft= { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
   {
     'ARM9/arm-syntax-vim',
   },
+  {
+	'arakkkkk/kanban.nvim'
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -281,6 +282,7 @@ require('lazy').setup({
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
 }, {})
+
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -672,6 +674,13 @@ cmp.setup {
   },
 }
 
+require("kanban").setup({
+	markdown = {
+		description_folder = "tasks",  -- Path to save the file corresponding to the task.
+		list_head = "## ",
+	}
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
@@ -694,11 +703,17 @@ vim.api.nvim_set_keymap("n", "tm", ":TableModeToggle<Enter>", {});
 -- IDE like editing
 vim.api.nvim_create_user_command("Pan", "30Lex", {});
 vim.api.nvim_create_user_command("Bte", "bot 10sp | term", {});
+
+-- terminal shortcut
 vim.api.nvim_set_keymap("n", "<C-`>", "<C-W><Down>i", {});
 vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
 
 -- Latex auto render
-vim.api.nvim_set_keymap("n", "rlt", ":!pdflatex '" .. vim.api.nvim_buf_get_name(0) .. "'<Enter>", {});
+vim.api.nvim_set_keymap("n", "<C-t>", ":!pdflatex '" .. vim.api.nvim_buf_get_name(0) .. "'<Enter>", {});
+
+-- copy all
+vim.api.nvim_set_keymap("n", "<C-a>", "ggyG",  {});
+
 
 -- netrw tree expansion by default
 vim.g.netrw_liststyle = 3;
@@ -707,4 +722,3 @@ vim.g.netrw_liststyle = 3;
 vim.opt.tabstop = 4;
 vim.opt.softtabstop = 4;
 vim.opt.shiftwidth = 4;
-

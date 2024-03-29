@@ -52,3 +52,5 @@ export PATH=$PATH:/home/jimmy/.spicetify
 fastfetch -c paleofetch.jsonc
 
 
+
+[ -f "/home/jimmy/.ghcup/env" ] && . "/home/jimmy/.ghcup/env" # ghcup-env

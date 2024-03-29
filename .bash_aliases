@@ -16,6 +16,7 @@ alias sudolock='faillock --reset'
 alias envpip='$CONDA_PREFIX/bin/pip'
 alias get_idf='. $HOME/code/esp-idf/export.sh'
 alias z='zoxide'
+alias kvim='nvim ~/agenda.md -c "KanbanOpen ~/agenda.md"'
 
 
 if [ -f ~/.hidden_aliases ]; then
