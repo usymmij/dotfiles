@@ -11,6 +11,7 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - waybar
 - qutebrowser
 - mako
+- hyprshot 
 
 ## References
 
