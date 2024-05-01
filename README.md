@@ -10,12 +10,13 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - hyprland
 - waybar
 - qutebrowser
+- mako
 
-## Credits
-> see [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy) for GNU stow tutorial referenced
+## References
 
+> nice video about stow [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
 
-> boostrapped using SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
+> many configs are modified or directly from SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
 
 ## Spicetify
 - under `.config/spicetify/Themes`, make sure to install [spicetify-themes](https://github.com/spicetify/spicetify-themes)
@@ -25,10 +26,10 @@ use GNU `stow` for managing my dotfiles that I want to keep
 cd ~/.config/spicetify/Themes
 git clone https://github.com/spicetify/spicetify-themes .
 ```
-
+# Ignore this section
 
 ## other packages
-> just a quick list for me to install when setting up my systems
+> just a list of packages I like
 - fastfetch 
 - openssh
 - spotify
