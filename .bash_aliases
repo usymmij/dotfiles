@@ -17,7 +17,7 @@ alias envpip='$CONDA_PREFIX/bin/pip'
 alias get_idf='. $HOME/code/esp-idf/export.sh'
 alias z='zoxide'
 alias kvim='nvim ~/agenda.md -c "KanbanOpen ~/agenda.md"'
-
+alias windows='sudo bootctl set-oneshot windows.conf'
 
 if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases
