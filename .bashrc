@@ -12,20 +12,7 @@ export PATH="/home/jimmy/.local/bin:$PATH"
 
 eval "$(starship init bash)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
-        . "/usr/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+
 #
 # some more ls aliases
 alias ll='ls -lh'
@@ -40,6 +27,9 @@ alias l='ls -CF'
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+if [ -f ~/.bash_profile ]; then
+    . ~/.bash_profile
+fi
 
 # Default parameter to send to the "less" command
 # -R: show ANSI colors correctly; -i: case insensitive search
@@ -52,5 +42,3 @@ export PATH=$PATH:/home/jimmy/.spicetify
 fastfetch -c paleofetch.jsonc
 
 
-
-[ -f "/home/jimmy/.ghcup/env" ] && . "/home/jimmy/.ghcup/env" # ghcup-env
