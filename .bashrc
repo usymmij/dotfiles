@@ -2,9 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# If not running interactively, don't do anything
-#[[ $- != *i* ]] && return
-
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
@@ -12,8 +9,27 @@ export PATH="/home/jimmy/.local/bin:$PATH"
 
 eval "$(starship init bash)"
 
+export HYPRSHOT_DIR="screenshots"
 
-#
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
+        . "/usr/etc/profile.d/conda.sh"
+	elif [ -f "/opt/miniconda3/bin/conda" ]; then
+		export PATH="/opt/miniconda3/bin:$PATH"
+    else
+        export PATH="/usr/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+# <<< conda initialize <<<
+
 # some more ls aliases
 alias ll='ls -lh'
 alias la='ls -A'
@@ -26,9 +42,6 @@ alias l='ls -CF'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
 fi
 
 # Default parameter to send to the "less" command
