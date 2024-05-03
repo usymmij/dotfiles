@@ -21,6 +21,8 @@ alias orca='kitty +kitten ssh -i ~/.ssh/orca jimmy@$ORCA_SSH_IP -p $ORCA_SSH_POR
 
 alias icat='kitty +kitten icat'
 
+alias icat='kitty +kitten icat'
+
 if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases
 fi

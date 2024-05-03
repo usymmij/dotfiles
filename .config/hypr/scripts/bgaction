@@ -19,8 +19,7 @@ if [ $THEMEIS == "gif" ]; then
 	# load a temporary freeze frame of the animation first
 	swww img ~/.config/hypr/wallpaper-dark-frozen.png
 	# cache and run the animated version
-	sleep 1
-	swww img ~/.config/hypr/wallpaper-dark.gif & disown
+	swww img ~/.config/hypr/wallpaper-dark.gif
 
 else
     swww img ~/.config/hypr/wallpaper-dark.jpg
