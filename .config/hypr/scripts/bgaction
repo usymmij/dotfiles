@@ -1,15 +1,18 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 #start swwww
 swww query || swww-daemon & disown
 
 #figure out which waybar theme is set
-THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
+# NOT APPLICABLE cuz 
+# perma dark theme
+#THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
+
+THEMEIS=$(cat ~/.config/hypr/wallpaper.type)
 
 #show the correct wallpapper based on the theme
-if [ $THEMEIS == "dark.css" ]; then
-	swww img ~/.config/hypr/wallpaper-dark.jpg
-    #swww img ~/.config/hypr/wallpaper-dark.gif
+if [ $THEMEIS == "gif" ]; then
+    swww img ~/.config/hypr/wallpaper-dark-frozen.png
 else
-    swww img ~/.config/hypr/wallpaper.jpg
+    swww img ~/.config/hypr/wallpaper-dark.jpg
 fi
