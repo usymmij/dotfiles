@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # most of this script does nothing, it just sets dark mode so its commented out
 
@@ -17,16 +17,17 @@
 #ln -sf /usr/share/sddm/themes/sdt/Backgrounds/wallpaper.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
 
 # check background and switch
-CURR_BACKGROUND=$(swww query | cut -d '/' -f7)
+CURR_BACKGROUND=$(swww query | cut -d '/' -f7 | grep -m1 "")
 NEW_BACKGROUND="wallpaper-dark.jpg"
+
 if [ $CURR_BACKGROUND == "wallpaper-dark.jpg" ]; then
 	NEW_BACKGROUND="wallpaper-dark.gif"
+	swww img ~/.config/hypr/wallpaper-dark-frozen.png --transition-fps 60 --transition-type any --transition-duration 2
+	echo "gif" > ~/.config/hypr/wallpaper.type 
+else
+	echo "jpg" > ~/.config/hypr/wallpaper.type
 fi
 swww img ~/.config/hypr/$NEW_BACKGROUND --transition-fps 60 --transition-type any --transition-duration 2
-
-
-exit
-
 
 # original script from SolDoesTech below
 

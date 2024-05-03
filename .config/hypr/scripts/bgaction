@@ -1,14 +1,27 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-#start swwww
+# start swwww, but clear cache since it might contain the animation
+# clearing cache allows loading the frozen frame first, while the full animation is being cached
 swww query || swww-daemon & disown
 
+swww clear-cache
+swww clear
+
 #figure out which waybar theme is set
-THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
+# NOT APPLICABLE cuz 
+# perma dark theme
+#THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
+
+THEMEIS=$(cat ~/.config/hypr/wallpaper.type)
 
 #show the correct wallpapper based on the theme
-if [ $THEMEIS == "dark.css" ]; then
-    swww img ~/.config/hypr/wallpaper-dark.gif
+if [ $THEMEIS == "gif" ]; then
+	# load a temporary freeze frame of the animation first
+	swww img ~/.config/hypr/wallpaper-dark-frozen.png
+	# cache and run the animated version
+	sleep 1
+	swww img ~/.config/hypr/wallpaper-dark.gif & disown
+
 else
     swww img ~/.config/hypr/wallpaper-dark.jpg
 fi

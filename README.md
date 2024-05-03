@@ -27,6 +27,12 @@ use GNU `stow` for managing my dotfiles that I want to keep
 cd ~/.config/spicetify/Themes
 git clone https://github.com/spicetify/spicetify-themes .
 ```
+
+## ssh client alias
+- to use the ssh orca alias, add `ORCA_SSH_IP=<ip address>` and `ORCA_SSH_PORT="<port number>"` to `/etc/environment`
+- then, generate a new ssh key, and store it as `~/.ssh/orca` 
+  - add `orca.pub` to `~/.ssh/authorized_keys` on the target server
+
 # Ignore this section
 
 ## other packages
@@ -46,3 +52,6 @@ git clone https://github.com/spicetify/spicetify-themes .
 > /etc/environment
 
 `QT_QPA_PLATFORMTHEME=qt6ct`
+`ORCA_SSH_IP=<ip address>`
+`ORCA_SSH_PORT=<port number>`
+
