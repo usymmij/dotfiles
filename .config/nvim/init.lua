@@ -722,3 +722,11 @@ vim.g.netrw_liststyle = 3;
 vim.opt.tabstop = 4;
 vim.opt.softtabstop = 4;
 vim.opt.shiftwidth = 4;
+
+-- disable the annoying comment thing
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+  end,
+})

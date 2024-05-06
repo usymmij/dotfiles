@@ -55,3 +55,13 @@ git clone https://github.com/spicetify/spicetify-themes .
 `ORCA_SSH_IP=<ip address>`
 `ORCA_SSH_PORT=<port number>`
 
+## adding syncthing with a cronjob
+
+```
+$ chmod +x ~/.scripts/sync.sh
+$ crontab -e
+@reboot ~/.scripts/sync.sh
+```
+
+
+
