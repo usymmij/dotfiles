@@ -8,6 +8,8 @@ alias sched='kitten icat ~/Documents/schedule.png'
 
 alias envpip='$CONDA_PREFIX/bin/pip'
 alias condac='conda activate'
+alias py='python'
+alias pi='python -i'
 
 alias dim='brightnessctl s 20%'
 alias bright='brightnessctl s 80%'
