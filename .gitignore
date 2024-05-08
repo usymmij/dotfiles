@@ -1,1 +1,3 @@
-.config/spicetify/Themes
+.config/spicetify/*
+!.config/spicetify/config-xpui.ini
+!.config/spicetify/Themes
