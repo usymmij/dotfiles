@@ -56,12 +56,11 @@ git clone https://github.com/spicetify/spicetify-themes .
 `ORCA_SSH_PORT=<port number>`
 
 ## adding syncthing with a cronjob
+- remember to enable the cron daemon if not already
 
 ```
 $ chmod +x ~/.scripts/sync.sh
 $ crontab -e
 @reboot ~/.scripts/sync.sh
 ```
-
-
 
