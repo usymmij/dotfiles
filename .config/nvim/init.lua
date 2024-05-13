@@ -85,7 +85,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -110,7 +110,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -185,16 +185,6 @@ require('lazy').setup({
       end,
     },
   },
-
-  {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -249,29 +239,13 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
-  }, 
+  },
 
-  {
-    'dhruvasagar/vim-table-mode'
-  },
-  
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft= { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
-  },
-  {
-    'ARM9/arm-syntax-vim',
-  },
-  {
-	'arakkkkk/kanban.nvim'
-  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
+  require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -281,6 +255,24 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
+  {
+    'dhruvasagar/vim-table-mode'
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
+
+  {
+    "rebelot/kanagawa.nvim",
+    opts = {
+      compile = false,
+      theme = "wave"
+    }
+  },
 }, {})
 
 
@@ -578,10 +570,9 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
@@ -624,8 +615,8 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load( {
-    exclude = { "markdown" },
+require('luasnip.loaders.from_vscode').lazy_load({
+  exclude = { "markdown" },
 })
 luasnip.config.setup {}
 
@@ -674,34 +665,29 @@ cmp.setup {
   },
 }
 
-require("kanban").setup({
-	markdown = {
-		description_folder = "tasks",  -- Path to save the file corresponding to the task.
-		list_head = "## ",
-	}
-})
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
 --
-vim.opt.shellcmdflag='-ic';
+vim.opt.shellcmdflag = '-ic';
 
+-- kanagawa colourscheme
+vim.cmd("colorscheme kanagawa");
 
 -- markdownpreview
 vim.g.mkdp_auto_start = 0;
 vim.g.mkdp_open_to_the_world = 0;
 vim.api.nvim_set_keymap("n", "mp", ":MarkdownPreview<Enter>", {});
 vim.g.mkdp_browser = '/usr/bin/qutebrowser';
-vim.g.mkdp_markdown_css = '/home/jimmy/.config/nvim/lua/custom/markdown.css';
-vim.g.mkdp_highlight_css= '/home/jimmy/.config/nvim/lua/custom/highlight.css';
-vim.g.mkdp_theme= 'dark';
+vim.g.mkdp_markdown_css = '/home/jimmy/.config/nvim/lua/usymmij/plugins/markdownpreview/markdown.css';
+vim.g.mkdp_highlight_css = '/home/jimmy/.config/nvim/lua/usymmij/plugins/markdownpreview/highlight.css';
+vim.g.mkdp_theme = 'dark';
 
--- table mode 
+-- table mode
 vim.api.nvim_set_keymap("n", "tm", ":TableModeToggle<Enter>", {});
 
 -- IDE like editing
-vim.api.nvim_create_user_command("Pan", "30Lex", {});
+vim.api.nvim_create_user_command("Pan", "25Lex", {});
 vim.api.nvim_create_user_command("Bte", "bot 10sp | term", {});
 
 -- terminal shortcut
@@ -712,16 +698,18 @@ vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
 vim.api.nvim_set_keymap("n", "<C-t>", ":!pdflatex '" .. vim.api.nvim_buf_get_name(0) .. "'<Enter>", {});
 
 -- copy all
-vim.api.nvim_set_keymap("n", "<C-a>", "ggyG",  {});
+vim.api.nvim_set_keymap("n", "<C-a>", "ggyG", {});
 
 
 -- netrw tree expansion by default
 vim.g.netrw_liststyle = 3;
 
 -- set tabstops
-vim.opt.tabstop = 4;
-vim.opt.softtabstop = 4;
-vim.opt.shiftwidth = 4;
+vim.opt.tabstop = 2;
+vim.opt.shiftwidth = 2;
+vim.opt.softtabstop = 2;
+vim.opt.expandtab = true;
+vim.opt.autoindent = true;
 
 -- disable the annoying comment thing
 vim.api.nvim_create_autocmd("FileType", {

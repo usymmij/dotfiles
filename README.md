@@ -33,7 +33,7 @@ git clone https://github.com/spicetify/spicetify-themes .
 - then, generate a new ssh key, and store it as `~/.ssh/orca` 
   - add `orca.pub` to `~/.ssh/authorized_keys` on the target server
 
-# Ignore this section
+# some useful things for myself
 
 ## other packages
 > just a list of packages I like
@@ -62,5 +62,15 @@ git clone https://github.com/spicetify/spicetify-themes .
 $ chmod +x ~/.scripts/sync.sh
 $ crontab -e
 @reboot ~/.scripts/sync.sh
+```
+
+## ignoring system specific changes in git
+
+```bash
+# removing a file
+git update-index --assume-unchanged file_name
+
+# adding a file back
+git update-index --no-assume-unchanged file_name 
 ```
 

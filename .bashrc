@@ -11,6 +11,7 @@ export HYPRSHOT_DIR="screenshots"
 
 eval "$(starship init bash)"
 
+# if conda isn't working, run conda init and this will be overwritten
 # >>> conda initialize >>>
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1

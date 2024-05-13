@@ -12,7 +12,7 @@ swww clear
 # perma dark theme
 #THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
 
-THEMEIS=$(cat ~/.config/hypr/wallpaper.type)
+THEMEIS=$(cat ~/.config/hypr/wallpaper.type | head -n 1)
 
 #show the correct wallpapper based on the theme
 if [ $THEMEIS == "gif" ]; then
