@@ -3,10 +3,10 @@
   "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 0,
-    "y": 0,
-    "width": 1920,
-    "height": 1080
+    "x": 12,
+    "y": 62,
+    "width": 1576,
+    "height": 826
   },
   "SKIP_HOST_UPDATE": true
 }
