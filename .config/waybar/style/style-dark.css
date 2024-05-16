@@ -56,7 +56,6 @@ tooltip label{
 #custom-launch_wofi,
 #custom-lock_screen,
 #custom-light_dark,
-#custom-power_btn,
 #custom-power_profile,
 #custom-weather,
 #custom-clock,
@@ -81,11 +80,11 @@ tooltip label{
     border: 0px;
 }
 
-#tray, #custom-lock_screen, #temperature, #backlight, #custom-launch_wofi, #cpu {
+#tray, #temperature, #backlight, #custom-launch_wofi, #cpu, #custom-updates {
     border-radius: 10px 0px 0px 10px;
 }
 
-#custom-light_dark, #custom-power_btn, #workspaces, #pulseaudio.microphone, #battery, #disk {
+#custom-lock_screen, #custom-light_dark, #workspaces, #pulseaudio.microphone, #battery, #disk {
     border-radius: 0px 10px 10px 0px;
     margin-right: 10px;
 }

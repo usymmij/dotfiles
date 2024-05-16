@@ -7,7 +7,7 @@
     "gtk-layer-shell": true,
     "height": 50,
     "modules-left": ["custom/launch_wofi","hyprland/workspaces","cpu","memory","disk","hyprland/window"],
-    "modules-center": ["custom/lock_screen","custom/updates","clock","custom/power_btn"],
+    "modules-center": ["custom/updates","clock","custom/lock_screen"],
     "modules-right": ["custom/clock","temperature","custom/power_profile","battery","backlight","pulseaudio","pulseaudio#microphone","tray","custom/light_dark"],
     
     "hyprland/window": {
@@ -22,19 +22,13 @@
 
     "custom/lock_screen": {
         "format": "",
-        "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
+        "on-click": "sh -c '(sleep 0.1; hyprlock)' & disown",
         "tooltip": false
     },
 
     "custom/light_dark": {
         "format": "󰐾",
         "on-click": "~/.config/waybar/scripts/baraction light",
-        "tooltip": false
-    },
-
-    "custom/power_btn": {
-        "format": "",
-        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
         "tooltip": false
     },
 

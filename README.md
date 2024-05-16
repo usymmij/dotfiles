@@ -8,10 +8,12 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - spicetify
 - starship
 - hyprland
+    - hyprlock
+- hyprshot 
 - waybar
 - qutebrowser
 - mako
-- hyprshot 
+- swww
 
 ## References
 
@@ -73,4 +75,8 @@ git update-index --assume-unchanged file_name
 # adding a file back
 git update-index --no-assume-unchanged file_name 
 ```
+
+## font for hyprlock
+- need font
+- ![here](https://www.dafont.com/valorant.font)
 
