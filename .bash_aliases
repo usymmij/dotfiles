@@ -10,6 +10,7 @@ alias envpip='$CONDA_PREFIX/bin/pip'
 alias condac='conda activate'
 alias py='python'
 alias pi='python -i'
+alias nvtempmax='~/.scripts/nvtempmax'
 
 alias dim='brightnessctl s 20%'
 alias bright='brightnessctl s 80%'

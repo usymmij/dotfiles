@@ -1,0 +1,16 @@
+#!/bin/bash 
+
+MAXTEMP=$(echo $(nvidia-smi | sed 10\!d | awk '{ print $3 }') | grep -Po "^..")
+echo $MAXTEMP
+for (( ; ; )) ; do
+
+  TEMP=$(echo $(nvidia-smi | sed 10\!d | awk '{ print $3 }') | grep -Po "^..")
+
+  if [ $TEMP -gt $MAXTEMP ]; then 
+    MAXTEMP=$TEMP
+    echo $MAXTEMP
+  fi;
+  sleep 0.2
+  
+done;
+
