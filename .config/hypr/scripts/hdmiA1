@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $(hostnamectl hostname) == *"Salmon" ]]; then 
+  hyprctl keyword monitor "HDMI-A-1, 2560x1440@60, 1920x-740, 1, transform, 3"
+else
+  hyprctl keyword monitor "HDMI-A-1, 1920x1080, 1920x0, 1"
+fi;
+
+
