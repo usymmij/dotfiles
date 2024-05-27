@@ -14,9 +14,14 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - qutebrowser
 - mako
 - swww
+- kvantum
+- qt6ct
 
-## References
 
+# Additional info / instructions for new systems
+- sometimes I forget, so this is a nice step by step for when I install. Maybe I should start my own distro instead... (jk)
+
+## Reference Material
 > nice video about stow [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
 
 > many configs are modified or directly from SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
@@ -45,17 +50,24 @@ git clone https://github.com/spicetify/spicetify-themes .
 - discord
 - sbctl (when secure boot is needed)
 - candy-icons
-- Sweet KDE theme
-- kvantum
-- qt6ct
+- Sweet KDE theme (Kvantum)
 - syncthing
 
-## Settings
+## Environment Variables
 > /etc/environment
 
-`QT_QPA_PLATFORMTHEME=qt6ct`
-`ORCA_SSH_IP=<ip address>`
-`ORCA_SSH_PORT=<port number>`
+- `QT_QPA_PLATFORMTHEME=qt6ct`
+- `QT_QPA_PLATFORM=wayland`
+- `ORCA_SSH_IP=<ip address>`
+- `ORCA_SSH_PORT=<port number>`
+
+## setting the theme with kvantum and qt6ct
+
+1. install both kvantum and qt6ct, then the theme and icons
+2. unzip the icons in `~/.icons` (or `/usr/share/.icons/` or `~/.local/share/.icons`)
+    - theme can go anywhere, but I like to match icons (e.g. `~/.theme`)
+3. run kvantum, then install and apply the theme (it wont show until you set qt6ct as well)
+4. use qt6ct to apply the `kvantum` theme, then the set the right icon theme as well
 
 ## adding syncthing with a cronjob
 - remember to enable the cron daemon if not already
@@ -78,5 +90,5 @@ git update-index --no-assume-unchanged file_name
 
 ## font for hyprlock
 - need font
-- ![here](https://www.dafont.com/valorant.font)
+- [here](https://www.dafont.com/valorant.font)
 
