@@ -6,6 +6,8 @@ alias s='kitten ssh'
 alias skl='cd ~/skl/sem2/'
 alias sched='kitten icat ~/Documents/schedule.png'
 
+alias ucam="fusermount -u ~/pictures/cam-mount"
+
 alias envpip='$CONDA_PREFIX/bin/pip'
 alias condac='conda activate'
 alias py='python'
