@@ -39,6 +39,6 @@ LESS="-R -i"
 export PATH=$PATH:/home/jimmy/.spicetify
 
 # startup commands
-fastfetch -c paleofetch.jsonc --kitty-direct "~/dotfiles/L.Borealis.png" --logo-width 30
+fastfetch -c paleofetch.jsonc --kitty-direct "~/dotfiles/fastfetch.png" --logo-width 30
 
 
