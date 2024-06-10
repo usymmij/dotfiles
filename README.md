@@ -65,7 +65,7 @@ git clone https://github.com/spicetify/spicetify-themes .
 
 1. install both kvantum and qt6ct, then the theme and icons
 2. unzip the icons in `~/.icons` (or `/usr/share/.icons/` or `~/.local/share/.icons`)
-    - theme can go anywhere, but I like to match icons (e.g. `~/.theme`)
+    - theme can go anywhere, but I like to match icons
 3. run kvantum, then install and apply the theme (it wont show until you set qt6ct as well)
 4. use qt6ct to apply the `kvantum` theme, then the set the right icon theme as well
 
