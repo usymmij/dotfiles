@@ -27,6 +27,7 @@ alias pipes='pipes.sh -f 40 -s 15 -r 5000 -p 4 -R'
 
 alias windows='sudo bootctl set-oneshot windows.conf'
 alias orca='kitten ssh -i ~/.ssh/orca jimmy@$ORCA_SSH_IP -p $ORCA_SSH_PORT'
+alias ccdb='echo "enter the datacenter name (e.g. graham)" && read && ssh -i ~/.ssh/ccdb usymmij@$REPLY.computecanada.ca'
 
 if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases
