@@ -26,6 +26,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
 # some more ls aliases
 alias ll='ls -lh'

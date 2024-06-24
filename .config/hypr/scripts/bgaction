@@ -2,7 +2,7 @@
 
 # start swwww, but clear cache since it might contain the animation
 # clearing cache allows loading the frozen frame first, while the full animation is being cached
-swww query || nice -n 19 swww-daemon & disown
+swww query || nice swww-daemon & disown
 
 swww clear-cache
 swww clear
