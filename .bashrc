@@ -28,8 +28,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
-# some more ls aliases
-alias ll='ls -lh'
+# some more ls aliases alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -51,3 +50,8 @@ export PATH=$PATH:/home/jimmy/.spicetify
 
 # startup commands
 fastfetch -c paleofetch.jsonc --kitty-direct "~/.config/fastfetch.png" --logo-width 30
+
+if [ -f ~/announcement ]; then
+  printf "\n\n\n"
+  printf "$(cat ~/announcement)"
+fi
