@@ -1,14 +1,26 @@
 #!/bin/bash
 
+disablebuiltin() {
+	if [[ $(hyprctl monitors | grep Monitor | wc -l) -ge 2 ]] 
+  	then 
+    hyprctl keyword monitor eDP-1,disable
+    else
+    hyprctl keyword monitor eDP-1,preferred,auto
+  fi
+
+}
+
 handle() {
   case $1 in monitoradded*)
+    disablebuiltin
     ~/.config/hypr/scripts/bgaction
   esac
   case $1 in monitorremoved*)
+    disablebuiltin
     ~/.config/hypr/scripts/bgaction
   esac
 }
 
 socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
 
-
+disablebuiltin
