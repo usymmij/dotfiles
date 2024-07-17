@@ -29,6 +29,10 @@ alias windows='sudo bootctl set-oneshot windows.conf'
 alias orca='kitten ssh -i ~/.ssh/orca -p $ORCA_SSH_PORT jimmy@$ORCA_SSH_IP'
 alias ccdb='echo "enter the datacenter name (e.g. graham)" && read && kitten ssh -i ~/.ssh/ccdb usymmij@$REPLY.computecanada.ca'
 
+alias hyprconf='vim ~/.config/hypr/hyprland.conf'
+alias lockconf='vim ~/.config/hypr/hyprlock.conf'
+alias idleconf='vim ~/.config/hypr/hypridle.conf'
+
 if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases
 fi
