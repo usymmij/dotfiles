@@ -49,7 +49,12 @@ LESS="-R -i"
 export PATH=$PATH:/home/jimmy/.spicetify
 
 # startup commands
-fastfetch -c paleofetch.jsonc --kitty-direct "~/.config/fastfetch.png" --logo-width 30
+if [ $SSH_TTY ] 
+then
+  fastfetch -c paleofetch.jsonc
+else
+  fastfetch -c paleofetch.jsonc --kitty-direct "~/.config/fastfetch.png" --logo-width 30
+fi
 
 if [ -f ~/announcement ]; then
   printf "\n\n\n"
