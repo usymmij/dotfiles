@@ -2,6 +2,6 @@
 
 ZAFILE=$(fzf)
 
-nohup zaread $ZAFILE > /dev/null & disown
+nohup zaread "$ZAFILE" > /dev/null & disown
 
 
