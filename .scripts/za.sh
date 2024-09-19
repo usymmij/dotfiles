@@ -1,6 +1,7 @@
 #!/bin/bash
 
-ZAFILE=$(fzf) || exit 1
+ZAFILE=$(fzf)
+
 nohup zaread "$ZAFILE" > /dev/null & disown
 
 
