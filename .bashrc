@@ -60,3 +60,5 @@ if [ -f ~/announcement ]; then
   printf "\n\n\n"
   printf "$(cat ~/announcement)"
 fi
+
+[ -f "/home/jimmy/.ghcup/env" ] && . "/home/jimmy/.ghcup/env" # ghcup-env
