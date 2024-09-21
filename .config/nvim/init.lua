@@ -698,8 +698,9 @@ vim.api.nvim_create_user_command("Bte", "bot 10sp | term", {});
 vim.api.nvim_set_keymap("n", "<C-`>", "<C-W><Down>i", {});
 vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
 
--- Latex auto render
-vim.api.nvim_set_keymap("n", "<C-t>", ":!pdflatex '" .. vim.api.nvim_buf_get_name(0) .. "'<Enter>", {});
+-- LaTeX render commands
+vim.api.nvim_set_keymap("n", "<C-t>", ":!pdflatex '" .. vim.fn.expand('%') .. "'<Enter>", {});
+vim.api.nvim_set_keymap("n", "<C-y>", ":!bibtex '" .. vim.fn.expand('%'):sub(1, -5) .. "'<Enter>", {});
 
 -- copy all
 vim.api.nvim_set_keymap("n", "<C-a>", "ggyG", {});
