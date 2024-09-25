@@ -1,7 +1,7 @@
 # My Dotfile repo
 use GNU `stow` for managing my dotfiles that I want to keep
 
-## apps managed
+## reqs
 - bash
 - neovim
 - kitty
@@ -16,10 +16,6 @@ use GNU `stow` for managing my dotfiles that I want to keep
 - swww
 - kvantum
 - qt6ct
-
-
-# Additional info / instructions for new systems
-- sometimes I forget, so this is a nice step by step for when I install. Maybe I should start my own distro instead... (jk)
 
 ## Reference Material
 > nice video about stow [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)

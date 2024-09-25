@@ -4,7 +4,6 @@
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
 
-Kickstart.nvim is *not* a distribution.
 
 Kickstart.nvim is a template for your own configuration.
   The goal is that you can read every line of code, top-to-bottom, understand
@@ -103,9 +102,6 @@ require('lazy').setup({
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
     },
   },
 
@@ -376,7 +372,8 @@ local function find_git_root()
   end
 
   -- Find the Git root directory from the current file's path
-  local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
+  local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')
+      [1]
   if vim.v.shell_error ~= 0 then
     print 'Not a git repository. Searching on current working directory'
     return cwd
@@ -620,7 +617,7 @@ mason_lspconfig.setup_handlers {
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load({
-  exclude = { "markdown" },
+  paths = { "./lua/usymmij/plugins/snippets/friendly-snippets/" },
 })
 luasnip.config.setup {}
 
@@ -710,9 +707,9 @@ vim.api.nvim_set_keymap("n", "<C-a>", "ggyG", {});
 vim.g.netrw_liststyle = 3;
 
 -- set tabstops
-vim.opt.tabstop = 2;
-vim.opt.shiftwidth = 2;
-vim.opt.softtabstop = 2;
+vim.opt.tabstop = 4;
+vim.opt.shiftwidth = 4;
+vim.opt.softtabstop = 4;
 vim.opt.expandtab = true;
 vim.opt.autoindent = true;
 

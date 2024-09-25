@@ -1,3 +1,6 @@
 [submodule ".config/spicetify/Themes"]
 	path = .config/spicetify/Themes
 	url = https://github.com/spicetify/spicetify-themes.git
+[submodule ".config/nvim/.config/nvim/lua/usymmij/plugins/snippets/friendly-snippets"]
+	path = .config/nvim/.config/nvim/lua/usymmij/plugins/snippets/friendly-snippets
+	url = https://github.com/rafamadriz/friendly-snippets
