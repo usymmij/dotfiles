@@ -697,7 +697,7 @@ vim.api.nvim_set_keymap("n", "<C-`>", "<C-W><Down>i", {});
 vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
 
 -- LaTeX render commands
-vim.api.nvim_set_keymap("n", "<C-t>", ":!pdflatex '" .. vim.fn.expand('%') .. "'<Enter>", {});
+vim.api.nvim_set_keymap("n", "<C-t>", ":!lualatex '" .. vim.fn.expand('%') .. "'<Enter>", {});
 vim.api.nvim_set_keymap("n", "<C-y>", ":!bibtex '" .. vim.fn.expand('%'):sub(1, -5) .. "'<Enter>", {});
 
 -- copy all
