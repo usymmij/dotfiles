@@ -62,3 +62,6 @@ if [ -f ~/announcement ]; then
 fi
 
 [ -f "/home/jimmy/.ghcup/env" ] && . "/home/jimmy/.ghcup/env" # ghcup-env
+
+# CARLA
+export UE4_ROOT="~/code/UnrealEngine/"
