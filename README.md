@@ -1,6 +1,8 @@
 # My Dotfile repo
 use GNU `stow` for managing my dotfiles that I want to keep
 
+arch + hyprland dotfiles very basic I know
+
 ## reqs
 - bash
 - neovim
@@ -60,6 +62,7 @@ git clone https://github.com/spicetify/spicetify-themes .
 ## setting the theme with kvantum and qt6ct
 
 1. install both kvantum and qt6ct, then the theme and icons
+    - [qt6ct-kde](https://aur.archlinux.org/packages/qt6ct-kde) sometimes fixes various issues
 2. unzip the icons in `~/.icons` (or `/usr/share/.icons/` or `~/.local/share/.icons`)
     - theme can go anywhere, but I like to match icons
 3. run kvantum, then install and apply the theme (it wont show until you set qt6ct as well)
@@ -88,3 +91,7 @@ git update-index --no-assume-unchanged file_name
 - need font
 - [here](https://www.dafont.com/valorant.font)
 
+
+## Screensharing discord
+if app is using xwayland, like discord, use:
+- [xwaylandvideobridge](https://aur.archlinux.org/packages/xwaylandvideobridge-git)
