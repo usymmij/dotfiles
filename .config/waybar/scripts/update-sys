@@ -32,7 +32,7 @@ if [ "$1" = "" ]; then
 
     if [[ "$COUNT" = "0" ]]
     then
-        echo " "
+        echo " "
     else
         # This Update symbol is RTL. So &#x202d; is left-to-right override.
         echo "  $COUNT"

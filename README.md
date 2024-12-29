@@ -49,17 +49,16 @@ git clone https://github.com/spicetify/spicetify-themes .
 - sbctl (when secure boot is needed)
 - candy-icons
 - Sweet KDE theme (Kvantum)
+    - + Sweet GTK theme
 - syncthing
 
 ## Environment Variables
 > /etc/environment
 
-- `QT_QPA_PLATFORMTHEME=qt6ct`
-- `QT_QPA_PLATFORM=wayland`
 - `ORCA_SSH_IP=<ip address>`
 - `ORCA_SSH_PORT=<port number>`
 
-## setting the theme with kvantum and qt6ct
+## setting the theme with kvantum, qt6ct, and nwg-look
 
 1. install both kvantum and qt6ct, then the theme and icons
     - [qt6ct-kde](https://aur.archlinux.org/packages/qt6ct-kde) sometimes fixes various issues
@@ -67,6 +66,13 @@ git clone https://github.com/spicetify/spicetify-themes .
     - theme can go anywhere, but I like to match icons
 3. run kvantum, then install and apply the theme (it wont show until you set qt6ct as well)
 4. use qt6ct to apply the `kvantum` theme, then the set the right icon theme as well
+
+- this sets the theme for qt6 apps 
+- to set the same theme for gtk apps, use nwg-look
+
+1. set widget theme to Sweet-Gtk
+2. set candy-icons in `Icon Theme`
+
 
 ## adding syncthing with a cronjob
 - remember to enable the cron daemon if not already
