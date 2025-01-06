@@ -13,6 +13,7 @@ alias condac='conda activate'
 alias py='python'
 alias pi='python -i'
 alias nvtempmax='~/.scripts/nvtempmax'
+alias socker='sudo docker'
 
 alias dim='brightnessctl s 20%'
 alias bright='brightnessctl s 80%'

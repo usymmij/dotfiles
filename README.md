@@ -17,7 +17,7 @@ arch + hyprland dotfiles very basic I know
 - mako
 - swww
 - kvantum
-- qt6ct
+- qt6ct-kde
 
 ## Reference Material
 > nice video about stow [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
