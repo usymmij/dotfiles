@@ -7,7 +7,6 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export PATH="/home/jimmy/.local/bin:$PATH"
-export HYPRSHOT_DIR="screenshots"
 
 eval "$(starship init bash)"
 
