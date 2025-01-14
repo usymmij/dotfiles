@@ -700,6 +700,9 @@ vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
 vim.api.nvim_set_keymap("n", "<C-t>", ":!lualatex '" .. vim.fn.expand('%') .. "'<Enter>", {});
 vim.api.nvim_set_keymap("n", "<C-y>", ":!bibtex '" .. vim.fn.expand('%'):sub(1, -5) .. "'<Enter>", {});
 
+-- Typst render
+vim.api.nvim_set_keymap("n", "<C-p>", ":!typst compile '" .. vim.fn.expand('%') .. "'<Enter>", {});
+
 -- copy all
 vim.api.nvim_set_keymap("n", "<C-a>", "ggyG", {});
 
