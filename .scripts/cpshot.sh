@@ -1,5 +1,5 @@
 #!/bin/bash
 #
-lastfile=$(ls ~/screenshots | tail -1)
-cp ~/screenshots/$lastfile ./$1
+lastfile=$(ls ~/$HYPRSHOT_DIR| tail -1)
+cp ~/$HYPRSHOT_DIR/$lastfile ./$1
 echo "$lastfile"
