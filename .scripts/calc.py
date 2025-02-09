@@ -23,7 +23,7 @@ def rad():
 
 mat = np.array
 
-def square(array):
+def sqmat(array):
     arr = array.flatten()
     n = len(array)
     if int(n ** 0.5)**2 != n:
