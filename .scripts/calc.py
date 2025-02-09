@@ -21,9 +21,15 @@ def rad():
     global degrees
     degrees = False
 
-mat = np.array
+def mat(*args):
+    return np.array(args)
 
-def sqmat(array):
+def sqmat(*args):
+    array = None
+    if len(args) == 1 and isinstance(args[0], np.ndarray):
+        array = args[0]
+    else:
+        array = np.array(args)
     arr = array.flatten()
     n = len(array)
     if int(n ** 0.5)**2 != n:
