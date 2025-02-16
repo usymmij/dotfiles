@@ -270,6 +270,17 @@ require('lazy').setup({
     },
     { 'echasnovski/mini.nvim',      version = '*' },
     { 'nvim-tree/nvim-web-devicons' },
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end,
+    }
 }, {})
 
 
@@ -695,8 +706,8 @@ vim.api.nvim_set_keymap("n", "tm", ":TableModeToggle<Enter>", {});
 
 -- IDE like editing
 vim.api.nvim_create_user_command("Pan", function()
-    vim.cmd("20Lex");
-    vim.cmd("wincmd h");
+    vim.cmd("NvimTreeToggle");
+    vim.cmd("wincmd l");
 end, {});
 --vim.api.nvim_create_user_command("Bte", "bot 10sp | term", {});
 
