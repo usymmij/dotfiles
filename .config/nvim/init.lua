@@ -694,12 +694,21 @@ vim.g.mkdp_theme = 'dark';
 vim.api.nvim_set_keymap("n", "tm", ":TableModeToggle<Enter>", {});
 
 -- IDE like editing
-vim.api.nvim_create_user_command("Pan", "15Lex!", {});
-vim.api.nvim_create_user_command("Bte", "bot 10sp | term", {});
+vim.api.nvim_create_user_command("Pan", function()
+    vim.cmd("15Lex!");
+    vim.cmd("wincmd h");
+end, {});
+--vim.api.nvim_create_user_command("Bte", "bot 10sp | term", {});
 
 -- terminal shortcut
-vim.api.nvim_set_keymap("n", "<C-`>", "<C-W><Down>i", {});
-vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
+--vim.api.nvim_set_keymap("n", "<C-`>", "<C-W><Down>i", {});
+--vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
+
+-- transition between panes
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-W><Down>", {});
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-W><Up>", {});
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-W><Right>", {});
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-W><Left>", {});
 
 -- LaTeX render commands
 vim.api.nvim_set_keymap("n", "<C-t>", ":!lualatex '" .. vim.fn.expand('%') .. "'<Enter>", {});
@@ -725,7 +734,7 @@ vim.opt.expandtab = true;
 vim.opt.autoindent = true;
 
 -- column limit
--- vim.opt.colorcolumn = "120";
+vim.opt.colorcolumn = "100";
 
 -- disable the annoying comment thing
 vim.api.nvim_create_autocmd("FileType", {
