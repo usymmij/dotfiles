@@ -695,7 +695,7 @@ vim.api.nvim_set_keymap("n", "tm", ":TableModeToggle<Enter>", {});
 
 -- IDE like editing
 vim.api.nvim_create_user_command("Pan", function()
-    vim.cmd("15Lex!");
+    vim.cmd("20Lex");
     vim.cmd("wincmd h");
 end, {});
 --vim.api.nvim_create_user_command("Bte", "bot 10sp | term", {});
