@@ -282,6 +282,11 @@ require('lazy').setup({
         config = function()
             require("nvim-tree").setup {}
         end,
+    },
+    {
+        'vyfor/cord.nvim',
+        build = ':Cord update',
+        -- opts = {}
     }
 }, {})
 
