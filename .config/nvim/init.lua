@@ -724,13 +724,6 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-W><Up>", {});
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-W><Right>", {});
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-W><Left>", {});
 
--- LaTeX render commands
-vim.api.nvim_set_keymap("n", "<C-t>", ":!lualatex '" .. vim.fn.expand('%') .. "'<Enter>", {});
-vim.api.nvim_set_keymap("n", "<C-y>", ":!bibtex '" .. vim.fn.expand('%'):sub(1, -5) .. "'<Enter>", {});
-
--- Typst render
-vim.api.nvim_set_keymap("n", "<C-p>", ":!typst compile '" .. vim.fn.expand('%') .. "'<Enter>", {});
-
 -- copy all
 vim.api.nvim_set_keymap("n", "<C-c>", "ggyG", {});
 
