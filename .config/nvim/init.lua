@@ -279,9 +279,6 @@ require('lazy').setup({
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
-        config = function()
-            require("nvim-tree").setup {}
-        end,
     },
     {
         'vyfor/cord.nvim',
@@ -691,11 +688,23 @@ cmp.setup {
     },
 }
 
+require('nvim-tree').setup {
+    view = {
+        side = "left",
+        width = 30,
+        relativenumber = true,
+    },
+}
+
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
 --
 vim.opt.shellcmdflag = '-ic';
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- kanagawa colourscheme
 vim.cmd("colorscheme kanagawa");
@@ -746,7 +755,7 @@ vim.opt.expandtab = true;
 vim.opt.autoindent = true;
 
 -- column limit
-vim.opt.colorcolumn = "100";
+vim.opt.colorcolumn = "80";
 
 -- disable the annoying comment thing
 vim.api.nvim_create_autocmd("FileType", {
