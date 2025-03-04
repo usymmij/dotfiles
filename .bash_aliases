@@ -10,6 +10,7 @@ alias ucam="fusermount -u ~/pictures/cam-mount"
 
 alias envpip='$CONDA_PREFIX/bin/pip'
 alias condac='condar; conda activate'
+alias condal='condar; conda env list'
 alias py='python'
 alias pi='python -i'
 alias nvtempmax='~/.scripts/nvtempmax'

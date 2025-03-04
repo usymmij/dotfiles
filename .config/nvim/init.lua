@@ -712,25 +712,16 @@ vim.cmd("colorscheme kanagawa");
 -- markdownpreview
 vim.g.mkdp_auto_start = 0;
 vim.g.mkdp_open_to_the_world = 0;
-vim.api.nvim_set_keymap("n", "mp", ":MarkdownPreview<Enter>", {});
 vim.g.mkdp_browser = '/usr/bin/qutebrowser';
 vim.g.mkdp_markdown_css = '/home/jimmy/.config/nvim/lua/usymmij/plugins/markdownpreview/markdown.css';
 vim.g.mkdp_highlight_css = '/home/jimmy/.config/nvim/lua/usymmij/plugins/markdownpreview/highlight.css';
 vim.g.mkdp_theme = 'dark';
 
--- table mode
-vim.api.nvim_set_keymap("n", "tm", ":TableModeToggle<Enter>", {});
-
--- IDE like editing
+-- Nvim Tree
 vim.api.nvim_create_user_command("Pan", function()
     vim.cmd("NvimTreeToggle");
     vim.cmd("wincmd l");
 end, {});
---vim.api.nvim_create_user_command("Bte", "bot 10sp | term", {});
-
--- terminal shortcut
---vim.api.nvim_set_keymap("n", "<C-`>", "<C-W><Down>i", {});
---vim.api.nvim_set_keymap("t", "<C-`>", "<C-\\><C-n><C-W><Up>", {});
 
 -- transition between panes
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-W><Down>", {});
