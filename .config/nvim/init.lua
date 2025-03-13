@@ -539,7 +539,7 @@ local on_attach = function(_, bufnr)
 
     -- See `:help K` for why this keymap
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    nmap('<C-s>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Lesser used LSP functionality
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -719,7 +719,7 @@ vim.g.mkdp_theme = 'dark';
 
 -- Nvim Tree
 vim.api.nvim_create_user_command("Pan", function()
-    vim.cmd("NvimTreeToggle");
+    vim.cmd("NvimTreeOpen");
     vim.cmd("wincmd l");
 end, {});
 
