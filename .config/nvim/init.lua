@@ -291,8 +291,8 @@ require('lazy').setup({
     --    -- build = "uv pip install . --python=$HOME/.virtualenvs/jupynium/bin/python",
     --    build = "conda run --no-capture-output -n jupynium pip install .",
     --},
-    "rcarriga/nvim-notify",   -- optional
-    "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
+    -- "rcarriga/nvim-notify",   -- optional
+    -- "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
 }, {})
 
 
@@ -337,7 +337,6 @@ vim.o.completeopt     = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors   = true
-
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -616,7 +615,8 @@ local servers = {
             -- diagnostics = { disable = { 'missing-fields' } },
         },
     },
-    tinymist = {}
+    tinymist = {},
+    verible_verilog_ls = { filetypes = { 'v', 'sv' } },
 }
 
 -- Setup neovim lua configuration
