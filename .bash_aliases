@@ -22,6 +22,7 @@ alias bright='brightnessctl s 80%'
 
 alias zathura='zaread'
 alias za='~/.scripts/za.sh && exit'
+alias splitpdf='~/.scripts/splitpdf.sh'
 alias cpshot='~/.scripts/cpshot.sh'
 alias calc='condar && python -i ~/.scripts/calc.py'
 alias icat='kitten icat'
