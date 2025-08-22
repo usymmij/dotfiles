@@ -114,6 +114,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -123,6 +124,10 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- split sizing
+vim.keymap.set('n', '<C-=>', '<C-w><C-+>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-->', '<C-w><C-->', { desc = 'Move focus to the upper window' })
 
 -- copy all
 vim.keymap.set('n', '<C-c>', 'ggyG', {})
@@ -480,7 +485,17 @@ require('lazy').setup({
             local servers = {
                 clangd = {},
                 -- gopls = {},
-                pylsp = {},
+                ruff = {}, -- python
+                rust_analyzer = {
+                    procMacro = {
+                        ignored = {
+                            leptos_macro = {
+                                'component',
+                                'server',
+                            },
+                        },
+                    },
+                },
 
                 lua_ls = {
                     settings = {
@@ -670,12 +685,16 @@ require('lazy').setup({
             'nvim-tree/nvim-web-devicons',
         },
         config = function()
+            vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
             require('nvim-tree').setup {
                 view = {
                     side = 'left',
                     width = 30,
                     relativenumber = true,
                 },
+
+                filters = { enable = true, dotfiles = false, git_ignored = false },
             }
         end,
     },
