@@ -9,14 +9,6 @@ vim.g.maplocalleader = ' '
 -- nerd font
 vim.g.have_nerd_font = true
 
--- markdownpreview
-vim.g.mkdp_auto_start = 0
-vim.g.mkdp_open_to_the_world = 0
-vim.g.mkdp_browser = '/usr/bin/qutebrowser'
-vim.g.mkdp_markdown_css = '/home/jimmy/.config/nvim/pluginconf/markdownpreview/markdown.css'
-vim.g.mkdp_highlight_css = '/home/jimmy/.config/nvim/pluginconf/markdownpreview/highlight.css'
-vim.g.mkdp_theme = 'dark'
-
 -- [[api stuff]]
 
 -- markdown paste in last screenshot
@@ -708,6 +700,16 @@ require('lazy').setup({
         ft = { 'markdown' },
         build = function()
             vim.fn['mkdp#util#install']()
+        end,
+        config = function()
+            vim.g.mkdp_auto_start = 0
+            vim.g.mkdp_open_to_the_world = 0
+            vim.g.mkdp_browser = '/usr/bin/qutebrowser'
+            vim.g.mkdp_markdown_css = '/home/jimmy/.config/nvim/pluginconf/markdownpreview/markdown.css'
+            vim.g.mkdp_highlight_css = '/home/jimmy/.config/nvim/pluginconf/markdownpreview/highlight.css'
+            vim.g.mkdp_theme = 'dark'
+
+            vim.keymap.set('n', 'mp', ':MarkdownPreview<Enter>', {})
         end,
     },
     {
