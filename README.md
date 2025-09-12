@@ -19,9 +19,12 @@ arch + hyprland dotfiles very cliche I know
 - kvantum
 - qt6ct-kde
 
-## Reference Material
+# References
+
+## gnu stow
 > nice video about stow [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
 
+## hyprland
 > many configs are modified or directly from SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
 
 > also [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
@@ -48,11 +51,14 @@ git clone https://github.com/spicetify/spicetify-themes .
 - Sweet KDE theme (Kvantum)
     - + Sweet GTK theme
 
-- ## Environment Variables
+## Environment Variables
 > /etc/environment
 
 - `ORCA_SSH_IP=<ip address>`
 - `ORCA_SSH_PORT=<port number>`
+
+## pairing the same bluetooth device to both windows + linux when dual booting
+[read this](https://unix.stackexchange.com/questions/255509/bluetooth-pairing-on-dual-boot-of-windows-linux-mint-ubuntu-stop-having-to-p)
 
 ## setting the theme with kvantum, qt6ct, and nwg-look
 

@@ -693,6 +693,21 @@ require('lazy').setup({
     {
         'dhruvasagar/vim-table-mode',
     },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'latex-lsp/tree-sitter-latex' },
+
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+        config = function()
+            local rend_md = require 'render-markdown'
+        end,
+    },
 
     {
         'iamcco/markdown-preview.nvim',
@@ -708,8 +723,6 @@ require('lazy').setup({
             vim.g.mkdp_markdown_css = '/home/jimmy/.config/nvim/pluginconf/markdownpreview/markdown.css'
             vim.g.mkdp_highlight_css = '/home/jimmy/.config/nvim/pluginconf/markdownpreview/highlight.css'
             vim.g.mkdp_theme = 'dark'
-
-            vim.keymap.set('n', 'mp', ':MarkdownPreview<Enter>', {})
         end,
     },
     {

@@ -41,9 +41,6 @@ fi
 
 [ -f "/home/jimmy/.ghcup/env" ] && . "/home/jimmy/.ghcup/env" # ghcup-env
 
-# CARLA
-export UE4_ROOT="~/code/UnrealEngine/"
-
 # conda takes forever to load, so instead of running it for each terminal 
 # run `condar` before using conda activate
 condasetup () {
@@ -62,15 +59,18 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 }
-conda_ready=0
+
+CONDA_READY=0
 condar() {
-    if [ $conda_ready -eq 0 ]; then
+    if [ $CONDA_READY -eq 0 ]; then
+        printf "setting up conda ...\n"
         condasetup
-        conda_ready=1
+        printf "complete!\n"
+        CONDA_READY=1
     fi
 }
+
 . "$HOME/.cargo/env"
 
 export QSYS_ROOTDIR="/home/jimmy/altera_lite/24.1std/quartus/sopc_builder/bin"
