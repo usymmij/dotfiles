@@ -195,27 +195,26 @@ local function cleanlist() -- removes checked 1st level boxes to hidden file
     writefile:close()
 end
 
-vim.keymap.set('n', 'mcl', function()
+vim.keymap.set('n', '<leader>l', function()
     cleanlist()
     vim.cmd 'w'
     vim.cmd('vs .' .. vim.fn.expand '%')
-end, {})
+end, { desc = 'move checked boxes to dotfile of same name' })
 
 -- flip checkbox
-vim.keymap.set('n', 'fc', function()
+vim.keymap.set('n', '<leader>c', function()
     local line = vim.api.nvim_get_current_line()
-    local _, linenum = unpack(vim.api.nvim_win_get_cursor(0))
+    local linenum, _ = unpack(vim.api.nvim_win_get_cursor(0))
     local offset = 0
     while line:sub(1, 1) == ' ' or line:sub(1, 1) == '\t' do
         offset = offset + 1
         line = line:sub(2)
     end
-    if line:sub(1, 2) == '- [' and line:sub(4, 4) == ']' then
+    if line:sub(1, 3) == '- [' and line:sub(5, 5) == ']' then
         local replace = ' '
-        if line:sub(3, 3) == ' ' then
+        if line:sub(4, 4) == ' ' then
             replace = 'x'
         end
-        println(offset + 1)
-        vim.api.nvim_buf_set_lines(1, offset + 1, offset + 1, false, { replace })
+        vim.api.nvim_buf_set_text(1, linenum - 1, offset + 3, linenum - 1, offset + 4, { replace })
     end
-end, {})
+end, { desc = 'flip checkbox' })
