@@ -679,6 +679,23 @@ require('lazy').setup({
         config = function()
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
+
+            -- ref: :help nvim-tree-quickstart-custom-mappings
+            local function attach_configs(bufnr)
+                local api = require 'nvim-tree.api'
+
+                local function opts(desc)
+                    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+                end
+
+                -- default mappings
+                api.config.mappings.default_on_attach(bufnr)
+
+                -- custom
+                vim.keymap.set('n', '<C-[>', api.tree.change_root_to_parent, opts 'Up')
+                vim.keymap.set('n', '<Esc>', '', opts 'nothing')
+            end
+
             require('nvim-tree').setup {
                 view = {
                     side = 'left',
@@ -687,6 +704,7 @@ require('lazy').setup({
                 },
 
                 filters = { enable = true, dotfiles = false, git_ignored = false },
+                on_attach = attach_configs,
             }
         end,
     },

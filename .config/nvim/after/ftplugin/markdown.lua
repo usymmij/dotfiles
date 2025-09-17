@@ -2,7 +2,16 @@
 vim.keymap.set('n', 'tm', ':TableModeToggle<Enter>', {})
 -- rendering
 vim.keymap.set('n', 'mp', ':MarkdownPreview<Enter>', {})
-vim.keymap.set('n', 'mr', ':RenderMarkdown toggle<Enter>', {})
+vim.keymap.set('n', 'mr', function()
+    image_nvim = require 'image'
+    if image_nvim.is_enabled() then
+        image_nvim.disable()
+        vim.cmd 'RenderMarkdown disable'
+    else
+        image_nvim.enable()
+        vim.cmd 'RenderMarkdown enable'
+    end
+end, {})
 
 -- list moving
 function println(str) -- print w newline

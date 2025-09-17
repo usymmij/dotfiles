@@ -3,7 +3,7 @@ alias evim='nvim -c "Pan"'
 
 alias s='kitten ssh'
 
-alias skl='cd ~/skl/'
+alias skl='cd ~/notes/courses/'
 alias sched='kitten icat ~/Documents/schedule.png'
 
 alias ucam="fusermount -u /mnt/cam"
