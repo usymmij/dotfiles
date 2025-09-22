@@ -13,6 +13,28 @@ vim.keymap.set('n', 'mr', function()
     end
 end, {})
 
+-- paste image
+vim.keymap.set('n', '<leader>i', function()
+    local filepath = vim.fn.expand '%'
+    local path = string.match(filepath, '(.-)([^\\/]-%.?([^%.\\/]*))$')
+    local filename = string.match(filepath, '[^\\/]-$')
+    os.execute('~/.scripts/cpshot.sh ' .. path .. '.imgs/' .. filename .. '/')
+    local cpshotwrite = io.open('/tmp/cpshot_last_write_path', 'r')
+    if cpshotwrite ~= nil then
+        local imagepath = cpshotwrite:read '*l'
+        local imagename = cpshotwrite:read '*l'
+        cpshotwrite:close()
+
+        local linenum, _ = unpack(vim.api.nvim_win_get_cursor(0))
+
+        print(imagepath .. imagename)
+        vim.api.nvim_buf_set_lines(vim.api.nvim_get_current_buf(), linenum, linenum, false, { '![](.imgs/' .. filename .. '/' .. imagename .. ')', '' })
+        vim.cmd 'normal jj'
+    else
+        print 'cpshot last write path not found in /tmp'
+    end
+end, {})
+
 -- list moving
 function println(str) -- print w newline
     print(str .. '\n')
@@ -66,7 +88,7 @@ local function dumpFile(dump, file, linecount, allowunchecked, deletedumped)
             if deletedumped then
                 local _, repcount = entry:gsub('\n', '')
 
-                vim.fn.deletebufline(1, entryline - deleteoffset, entryline + repcount - deleteoffset - 1)
+                vim.fn.deletebufline(vim.api.nvim_get_current_buf(), entryline - deleteoffset, entryline + repcount - deleteoffset - 1)
 
                 deleteoffset = deleteoffset + repcount
             end
@@ -149,7 +171,7 @@ local function cleanlist() -- removes checked 1st level boxes to hidden file
     writefile:close()
 
     local readlistlen = vim.api.nvim_buf_line_count(0)
-    local readlist = vim.api.nvim_buf_get_lines(0, 0, vim.api.nvim_buf_line_count(0), false)
+    local readlist = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 0, vim.api.nvim_buf_line_count(0), false)
 
     -- dump the markdown headers into a tree
     local dump = { name = 'root' }
@@ -224,6 +246,6 @@ vim.keymap.set('n', '<leader>c', function()
         if line:sub(4, 4) == ' ' then
             replace = 'x'
         end
-        vim.api.nvim_buf_set_text(1, linenum - 1, offset + 3, linenum - 1, offset + 4, { replace })
+        vim.api.nvim_buf_set_text(vim.api.nvim_get_current_buf(), linenum - 1, offset + 3, linenum - 1, offset + 4, { replace })
     end
 end, { desc = 'flip checkbox' })

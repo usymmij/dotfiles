@@ -6,7 +6,7 @@ CURRTHEME=$(cat /home/jimmy/.config/cyclebackground/current_background | head -n
 
 if [ ! -z "$1" ]; then
   echo "$1"
-  swww img "$THEMEPATH$CURRTHEME" --transition-step 255 --transition-fps 20 
+  swww img "$THEMEPATH$CURRTHEME"
 else
   NEWTHEME=""
   found=0
