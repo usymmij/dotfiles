@@ -36,7 +36,7 @@ alias windows='sudo bootctl set-oneshot windows.conf'
 alias wreboot='windows && reboot'
 alias orca='kitten ssh -i ~/.ssh/orca -p $ORCA_SSH_PORT jimmy@$ORCA_SSH_IP'
 alias turtle='kitten ssh 192.168.1.80'
-alias ccdb='echo "enter the datacenter name (e.g. graham)" && read && kitten ssh -i ~/.ssh/ccdb usymmij@$REPLY.computecanada.ca'
+alias ccdb='echo "enter the datacenter name (e.g. graham)" && read && kitten ssh -i ~/.ssh/ccdb usymmij@$REPLY.alliancecan.ca'
 
 alias hyprconf='vim ~/.config/hypr/hyprland.conf'
 alias lockconf='vim ~/.config/hypr/hyprlock.conf'
