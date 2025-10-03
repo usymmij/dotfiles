@@ -158,7 +158,9 @@ local function cleanlist() -- removes checked 1st level boxes to hidden file
     local writefile = io.open('.' .. filename, 'r')
     if writefile == nil then
         writefile = io.open('.' .. filename, 'w+')
-        writefile:close()
+        if writefile ~= nil then
+            writefile:close()
+        end
         writefile = io.open('.' .. filename, 'r')
     end
     local writelist = {}
