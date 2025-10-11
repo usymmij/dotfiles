@@ -84,3 +84,26 @@ git update-index --assume-unchanged file_name
 # adding a file back
 git update-index --no-assume-unchanged file_name 
 
+```
+
+# Install Instructions
+1. setup up a base arch install, 
+    - recommended to have `efivars` and `systemdboot`
+    - `networkmanager`
+    - `nvim` for text
+    - make a user account
+2. install `yay`
+```bash
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+3. install these packages with yay
+- `nvim`
+- `hyprland`
+- `noto-fonts` `noto-fonts-cjk` `noto-fonts-emoji` `noto-fonts-extra`
+- `fzf`
+- `wofi`
+- `kitty`
+
