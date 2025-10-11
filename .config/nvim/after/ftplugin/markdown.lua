@@ -151,26 +151,34 @@ local function dumpFile(dump, file, linecount, allowunchecked, deletedumped)
 end
 
 local function cleanlist() -- removes checked 1st level boxes to hidden file
-    local filename = vim.fn.expand '%'
+    local filename = (vim.fn.expand '%'):match '[^/]*.md$'
+    local filepath = (vim.fn.expand '%'):match '^.*/'
+    if filepath == nil then
+        filepath = ''
+    end
+    local writepath = filepath .. '.' .. filename
+
     if filename:sub(1, 1) == '.' then
         error 'in a dotfile'
     end
-    local writefile = io.open('.' .. filename, 'r')
+    local writefile = io.open(writepath, 'r')
     if writefile == nil then
-        writefile = io.open('.' .. filename, 'w+')
+        writefile = io.open(writepath, 'w+')
         if writefile ~= nil then
             writefile:close()
         end
-        writefile = io.open('.' .. filename, 'r')
+        writefile = io.open(writepath, 'r')
     end
     local writelist = {}
 
-    local line = writefile:read '*l'
-    while line ~= nil do
-        writelist[#writelist + 1] = line
-        line = writefile:read '*l'
+    if writefile ~= nil then
+        local line = writefile:read '*l'
+        while line ~= nil do
+            writelist[#writelist + 1] = line
+            line = writefile:read '*l'
+        end
+        writefile:close()
     end
-    writefile:close()
 
     local readlistlen = vim.api.nvim_buf_line_count(0)
     local readlist = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 0, vim.api.nvim_buf_line_count(0), false)
@@ -208,7 +216,7 @@ local function cleanlist() -- removes checked 1st level boxes to hidden file
         println '\n\n\n'
     end
 
-    writefile = assert(io.open('.' .. filename, 'w+'))
+    writefile = assert(io.open(writepath, 'w+'))
 
     local function writesubtree(d, level)
         local tab = ('#'):rep(level)
@@ -226,12 +234,13 @@ local function cleanlist() -- removes checked 1st level boxes to hidden file
     end
     writesubtree(dump, 0)
     writefile:close()
+    return writepath
 end
 
 vim.keymap.set('n', '<leader>l', function()
-    cleanlist()
+    local path = cleanlist()
     vim.cmd 'w'
-    vim.cmd('vs .' .. vim.fn.expand '%')
+    vim.cmd('vs ' .. path)
 end, { desc = 'move checked boxes to dotfile of same name' })
 
 -- flip checkbox

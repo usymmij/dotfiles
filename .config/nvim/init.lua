@@ -263,7 +263,7 @@ require('lazy').setup({
                 --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
                 --   },
                 -- },
-                -- pickers = {}
+                pickers = { find_files = { hidden = false } },
                 extensions = {
                     ['ui-select'] = {
                         require('telescope.themes').get_dropdown(),
@@ -277,7 +277,10 @@ require('lazy').setup({
 
             -- See `:help telescope.builtin`
             local builtin = require 'telescope.builtin'
-            vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+            vim.keymap.set('n', '<leader>sh', function()
+                builtin.find_files { hidden = true }
+            end, { desc = '[S]earch files including [H]idden ' })
+            --vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
             vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
             vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
@@ -643,10 +646,10 @@ require('lazy').setup({
     -- Highlight special keyword comments
     -- FIX:
     -- TODO:
+    -- NOTE:
     -- HACK:
     -- WARN:
     -- PERF:
-    -- NOTE:
     -- TEST:
     { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
