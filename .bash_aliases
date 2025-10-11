@@ -1,5 +1,7 @@
 alias vim='nvim'
 alias evim='nvim -c "Pan"'
+alias tags=' printf "\33[0;31mFIX\n\33[0;34mTODO\nNOTE\n\33[0;33mHACK\nWARN\n\33[1;37mPERF\nTEST"
+'
 
 alias s='kitten ssh'
 
@@ -41,7 +43,6 @@ alias ccdb='echo "enter the datacenter name (e.g. graham)" && read && kitten ssh
 alias hyprconf='vim ~/.config/hypr/hyprland.conf'
 alias lockconf='vim ~/.config/hypr/hyprlock.conf'
 alias idleconf='vim ~/.config/hypr/hypridle.conf'
-
 if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases
 fi
