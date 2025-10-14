@@ -90,7 +90,6 @@ git update-index --no-assume-unchanged file_name
 1. setup up a base arch install, 
     - recommended to have `efivars` and `systemdboot`
     - `networkmanager`
-    - `nvim` for text
     - make a user account
 2. install `yay`
 ```bash
@@ -100,10 +99,24 @@ cd yay
 makepkg -si
 ```
 3. install these packages with yay
-- `nvim`
-- `hyprland`
-- `noto-fonts` `noto-fonts-cjk` `noto-fonts-emoji` `noto-fonts-extra`
-- `fzf`
-- `wofi`
-- `kitty`
+> compositor and desktop
+```
+hyprland wofi kitty fastfetch waybar starship swww
+```
+> fonts
+```
+noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd
+```
+> text editing
+```
+nvim fzf stylua zaread 
+```
+> other tools
+```
+man stow nm-applet kvantum
+```
+> optional apps
+```
+qutebrowser nextcloud-client rnote discord thunderbird
+```
 
