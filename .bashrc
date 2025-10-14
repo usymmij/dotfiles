@@ -66,6 +66,9 @@ condar() {
     fi
 }
 
+# add ssh-keys
+eval $(ssh-agent -s)
+
 # keep until we finish the backup script
 zfs list -t snapshot
 echo "check if gtk4 tablet bug is fixed"

@@ -84,6 +84,8 @@ git update-index --assume-unchanged file_name
 # adding a file back
 git update-index --no-assume-unchanged file_name 
 
+# see what files are assumed unchanged
+git ls-files -v | grep '^[[:lower:]]'
 ```
 
 # Install Instructions
@@ -109,7 +111,7 @@ noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-n
 ```
 > text editing
 ```
-nvim fzf stylua zaread 
+nvim fzf stylua zaread zathura-pdf-poppler
 ```
 > other tools
 ```
@@ -131,5 +133,10 @@ mkdir .config # Important for not adding undesireable dotfiles
 git clone https://github.com/usymmij/dotfiles
 cd dotfiles
 stow . --adopt
+```
+> make sure to also untrack these files
+```bash
+git update-index --assume-unchanged .config/cyclebackground/current_background 
+git update-index --assume-unchanged .config/hypr/local.conf
 ```
 

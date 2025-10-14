@@ -1,4 +1,3 @@
 .config/spicetify/*
 !.config/spicetify/config-xpui.ini
 !.config/spicetify/Themes
-.config/hypr/local.conf
