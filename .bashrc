@@ -26,13 +26,8 @@ LESS="-R -i"
 # spicetify
 export PATH=$PATH:/home/jimmy/.spicetify
 
-# startup commands
-if [ $SSH_TTY ] 
-then
-  fastfetch -c paleofetch.jsonc
-else
-  fastfetch -c paleofetch.jsonc --kitty-direct "~/.config/fastfetch.png" --logo-width 30
-fi
+# startup ommands
+fastfetch -c paleofetch.jsonc 
 
 if [ -f ~/announcement ]; then
   printf "\n\n\n"
@@ -71,9 +66,8 @@ condar() {
     fi
 }
 
-. "$HOME/.cargo/env"
-
-export QSYS_ROOTDIR="/home/jimmy/altera_lite/24.1std/quartus/sopc_builder/bin"
+# add ssh-keys
+eval $(ssh-agent -s)
 
 # keep until we finish the backup script
 zfs list -t snapshot

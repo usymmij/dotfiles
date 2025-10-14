@@ -1,13 +1,12 @@
 alias vim='nvim'
 alias evim='nvim -c "Pan"'
-alias tags=' printf "\33[0;31mFIX\n\33[0;34mTODO\nNOTE\n\33[0;33mHACK\nWARN\n\33[1;37mPERF\nTEST"
-'
+alias tags='printf "\33[0;31mFIX\n\33[0;34mTODO\nNOTE\n\33[0;33mHACK\nWARN\n\33[1;37mPERF\nTEST"'
 
 alias s='kitten ssh'
 
 alias skl='cd ~/notes/courses/'
 alias nts='returnpath=$(pwd);cd ~/notes; nvim -c Pan && cd $returnpath'
-alias sched='kitten icat ~/Documents/schedule.png'
+alias sc='cd ~/scratch'
 
 alias ucam="fusermount -u /mnt/cam"
 alias lcam="gphoto2 --auto-detect"

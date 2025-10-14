@@ -84,13 +84,14 @@ git update-index --assume-unchanged file_name
 # adding a file back
 git update-index --no-assume-unchanged file_name 
 
+# see what files are assumed unchanged
+git ls-files -v | grep '^[[:lower:]]'
 ```
 
 # Install Instructions
 1. setup up a base arch install, 
     - recommended to have `efivars` and `systemdboot`
     - `networkmanager`
-    - `nvim` for text
     - make a user account
 2. install `yay`
 ```bash
@@ -100,10 +101,42 @@ cd yay
 makepkg -si
 ```
 3. install these packages with yay
-- `nvim`
-- `hyprland`
-- `noto-fonts` `noto-fonts-cjk` `noto-fonts-emoji` `noto-fonts-extra`
-- `fzf`
-- `wofi`
-- `kitty`
+> compositor and desktop
+```
+hyprland hypridle hyprlock hyprshot wofi kitty fastfetch waybar starship swww
+```
+> fonts
+```
+noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd
+```
+> text editing
+```
+nvim fzf stylua zaread zathura-pdf-poppler
+```
+> other tools
+```
+man stow stow
+```
+> customization
+```
+kvantum nwg-look
+```
+> optional apps
+```
+qutebrowser nextcloud-client rnote discord thunderbird
+```
+
+3. download dotfiles
+```bash
+cd ~
+mkdir .config # Important for not adding undesireable dotfiles 
+git clone https://github.com/usymmij/dotfiles
+cd dotfiles
+stow . --adopt
+```
+> make sure to also untrack these files
+```bash
+git update-index --assume-unchanged .config/cyclebackground/current_background 
+git update-index --assume-unchanged .config/hypr/local.conf
+```
 

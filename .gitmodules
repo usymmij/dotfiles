@@ -4,3 +4,6 @@
 [submodule ".config/nvim/.config/nvim/lua/usymmij/plugins/snippets/friendly-snippets"]
 	path = .config/nvim/.config/nvim/lua/usymmij/plugins/snippets/friendly-snippets
 	url = https://github.com/rafamadriz/friendly-snippets
+[submodule ".themes/Sweet"]
+	path = .themes/Sweet
+	url = git@github.com:EliverLara/Sweet.git
