@@ -101,7 +101,7 @@ makepkg -si
 3. install these packages with yay
 > compositor and desktop
 ```
-hyprland wofi kitty fastfetch waybar starship swww
+hyprland hypridle hyprlock hyprshot wofi kitty fastfetch waybar starship swww
 ```
 > fonts
 ```
@@ -113,10 +113,23 @@ nvim fzf stylua zaread
 ```
 > other tools
 ```
-man stow nm-applet kvantum
+man stow stow
+```
+> customization
+```
+kvantum nwg-look
 ```
 > optional apps
 ```
 qutebrowser nextcloud-client rnote discord thunderbird
+```
+
+3. download dotfiles
+```bash
+cd ~
+mkdir .config # Important for not adding undesireable dotfiles 
+git clone https://github.com/usymmij/dotfiles
+cd dotfiles
+stow . --adopt
 ```
 
