@@ -29,6 +29,9 @@ arch + hyprland dotfiles very cliche I know
 
 > also [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
 
+## Updating submodules
+`git submodule update --recursive`
+
 ## Spicetify
 - under `.config/spicetify/Themes`, make sure to install [spicetify-themes](https://github.com/spicetify/spicetify-themes)
 - make sure that the themes are in the `Themes` folder, not the new one git created
@@ -109,9 +112,9 @@ hyprland hypridle hyprlock hyprshot wofi kitty fastfetch waybar starship swww
 ```
 noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd
 ```
-> text editing
+> text and pdf
 ```
-nvim fzf stylua zaread zathura-pdf-poppler
+nvim fzf zaread zathura-pdf-poppler stylua clangd
 ```
 > other tools
 ```
@@ -132,6 +135,7 @@ cd ~
 mkdir .config # Important for not adding undesireable dotfiles 
 git clone https://github.com/usymmij/dotfiles
 cd dotfiles
+git submodule update --init
 stow . --adopt
 ```
 > make sure to also untrack these files
@@ -139,4 +143,3 @@ stow . --adopt
 git update-index --assume-unchanged .config/cyclebackground/current_background 
 git update-index --assume-unchanged .config/hypr/local.conf
 ```
-
