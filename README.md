@@ -106,7 +106,7 @@ makepkg -si
 3. install these packages with yay
 > compositor and desktop
 ```
-hyprland hypridle hyprlock hyprshot wofi kitty fastfetch waybar starship swww
+hyprland hypridle hyprlock hyprshot hyprpaper wofi kitty fastfetch waybar starship 
 ```
 > fonts
 ```

@@ -42,6 +42,7 @@ alias ccdb='echo "enter the datacenter name (e.g. graham)" && read && kitten ssh
 alias hyprconf='vim ~/.config/hypr/hyprland.conf'
 alias lockconf='vim ~/.config/hypr/hyprlock.conf'
 alias idleconf='vim ~/.config/hypr/hypridle.conf'
+alias paperconf='vim ~/.config/hypr/hyprpaper.conf'
 if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases
 fi

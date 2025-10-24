@@ -2,11 +2,12 @@
 
 THEMEPATH="/home/jimmy/.config/cyclebackground/backgrounds/"
 THEMES=$(ls $THEMEPATH)
-CURRTHEME=$(cat /home/jimmy/.config/cyclebackground/current_background | head -n 1)
+CURRTHEME=$(basename $(hyprctl hyprpaper listloaded))
+#$(cat /home/jimmy/.config/cyclebackground/current_background | head -n 1)
 
 if [ ! -z "$1" ]; then
   echo "$1"
-  swww img "$THEMEPATH$CURRTHEME"
+  hyprctl hyprpaper reload ,"$THEMEPATH$CURRTHEME"
 else
   NEWTHEME=""
   found=0
@@ -36,8 +37,9 @@ else
   fi
   
   # set next bg
-  echo $NEWTHEME > /home/jimmy/.config/cyclebackground/current_background
-  swww img "$THEMEPATH$NEWTHEME" --transition-type outer --transition-pos 0.9,0.9 --transition-step 20 --transition-fps 60
+  #echo $NEWTHEME > /home/jimmy/.config/cyclebackground/current_background
+  #swww img "$THEMEPATH$NEWTHEME" --transition-type outer --transition-pos 0.9,0.9 --transition-step 20 --transition-fps 60
+  hyprctl hyprpaper reload ,"$THEMEPATH$NEWTHEME"
   echo "previous: $CURRTHEME"
   echo "new: $NEWTHEME"
 fi
