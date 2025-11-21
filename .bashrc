@@ -23,6 +23,9 @@ fi
 # -R: show ANSI colors correctly; -i: case insensitive search
 LESS="-R -i"
 
+# bind zsh-like tabbing
+bind 'TAB:menu-complete'
+
 # spicetify
 export PATH=$PATH:/home/jimmy/.spicetify
 
@@ -65,9 +68,6 @@ condar() {
         CONDA_READY=1
     fi
 }
-
-# add ssh-keys
-eval $(ssh-agent -s)
 
 # keep until we finish the backup script
 zfs list -t snapshot
