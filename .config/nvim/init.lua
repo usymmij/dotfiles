@@ -28,6 +28,9 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
+-- make with control m
+vim.api.nvim_set_keymap('n', '<C-m>', ':!make -j <Enter>', {})
+
 -- [[ Options ]]
 --
 -- Make line numbers default
