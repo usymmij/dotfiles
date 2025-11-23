@@ -48,8 +48,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-background-opacity = 0.8
 
-theme = Catppuccin Frappe
-#foreground              #CDD6F4 
-#background              #1C1D26
+# theme<D-g>
+background-opacity = 0.8
+theme = Catppuccin Mocha 
