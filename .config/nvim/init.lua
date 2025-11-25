@@ -9,6 +9,9 @@ vim.g.maplocalleader = ' '
 -- nerd font
 vim.g.have_nerd_font = true
 
+-- tex file extension default type
+vim.g.tex_flavor = 'latex'
+
 -- [[api stuff]]
 
 -- markdown paste in last screenshot
@@ -124,6 +127,9 @@ vim.keymap.set('n', '<C-->', '<C-w><C-->', { desc = 'Move focus to the upper win
 -- copy all
 vim.keymap.set('n', '<C-c>', 'ggyG', {})
 
+-- format text
+vim.keymap.set('n', '<leader>wf', 'gqap', {})
+
 -- [[ Basic Autocommands ]]
 
 -- Highlight when yanking (copying) text
@@ -145,6 +151,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     end
 end
 
+-- runtime path?
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
@@ -697,6 +704,8 @@ require('lazy').setup({
             auto_install = true,
             highlight = {
                 enable = true,
+                disable = { 'latex' },
+
                 -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
                 --  If you are experiencing weird indenting issues, add the language to
                 --  the list of additional_vim_regex_highlighting and disabled languages for indent.
@@ -795,10 +804,24 @@ require('lazy').setup({
             vim.g.mkdp_theme = 'dark'
         end,
     },
+
     {
         'vyfor/cord.nvim',
         build = ':Cord update',
         opts = {},
+    },
+
+    {
+        'lervag/vimtex',
+        lazy = false, -- we don't want to lazy load VimTeX
+        -- tag = "v2.15", -- uncomment to pin to a specific release
+        init = function()
+            -- VimTeX configuration goes here, e.g.
+            vim.g.vimtex_view_method = 'zathura'
+            vim.g.latex_view_general_viewer = 'zathura'
+            vim.g.vimtex_syntax_enabled = 1
+            vim.cmd 'syntax enable'
+        end,
     },
 }, {
     ui = {

@@ -1,8 +1,11 @@
 -- table mode
-vim.keymap.set('n', 'tm', ':TableModeToggle<Enter>', {})
+vim.keymap.set('n', '<leader>mt', ':TableModeToggle<Enter>', {})
+
 -- rendering
 --vim.keymap.set('n', 'mp', ':MarkdownPreview<Enter>', {})
-vim.keymap.set('n', 'mp', ':Markview splitToggle<Enter>', {})
+vim.keymap.set('n', '<leader>mp', ':Markview splitToggle<Enter>', {})
+
+vim.keymap.set('n', '<leader>mm', ':Markview toggle<Enter>', {})
 
 -- render markdown
 -- vim.keymap.set('n', 'mr', function()
