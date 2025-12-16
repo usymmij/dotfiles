@@ -130,6 +130,9 @@ vim.keymap.set('n', '<C-c>', 'ggyG', {})
 -- format text
 vim.keymap.set('n', '<leader>wf', 'gqap', {})
 
+-- accept autocomplete
+vim.keymap.set('i', '<C-CR>', '<C-y>')
+
 -- [[ Basic Autocommands ]]
 
 -- Highlight when yanking (copying) text
@@ -608,6 +611,7 @@ require('lazy').setup({
         opts = {
             keymap = {
                 preset = 'default',
+                ['<C-CR>'] = { 'select_and_accept', 'fallback' },
             },
 
             appearance = {

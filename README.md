@@ -63,6 +63,13 @@ git clone https://github.com/spicetify/spicetify-themes .
 ## pairing the same bluetooth device to both windows + linux when dual booting
 [read this](https://unix.stackexchange.com/questions/255509/bluetooth-pairing-on-dual-boot-of-windows-linux-mint-ubuntu-stop-having-to-p)
 
+## Steam Crashing
+- As of 2025, the steam login webhelper crashes with some GTK theme configurations 
+    - [see here](https://github.com/ValveSoftware/steam-for-linux/issues/11621)
+    - this only happens to the login webhelper - the workaround was to change the widget, icon, and cursor themes 
+    to Adwaita first, then login, then set them back to the custom theme. Autologin works fine.
+
+
 ## setting the theme with kvantum, qt6ct, and nwg-look
 
 1. install both kvantum and qt6ct, then the theme and icons
