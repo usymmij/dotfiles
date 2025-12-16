@@ -46,3 +46,4 @@ if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases
 fi
 
+alias alarm="tclock timer -e \"do notify-send stop; mpv /usr/share/sounds/freedesktop/stereo/bell.oga;\" -d" 
