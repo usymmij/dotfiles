@@ -782,6 +782,11 @@ require('lazy').setup({
 
         -- Completion for `blink.cmp`
         dependencies = { 'saghen/blink.cmp' },
+        opts = {
+            typst = {
+                enable = false,
+            },
+        },
     },
 
     {
@@ -826,6 +831,16 @@ require('lazy').setup({
             vim.g.vimtex_syntax_enabled = 1
             vim.cmd 'syntax enable'
         end,
+    },
+    {
+        'goerz/jupytext.nvim',
+        version = '0.2.0',
+        opts = {
+            jupytext = 'jupytext',
+        }, -- see Options
+    },
+    {
+        'jbyuki/venn.nvim',
     },
 }, {
     ui = {
