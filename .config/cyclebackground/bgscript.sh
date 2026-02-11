@@ -1,13 +1,15 @@
 #!/bin/bash
 
-THEMEPATH="/home/jimmy/.config/cyclebackground/backgrounds/"
+THEMEPATH="/home/$USER/.config/cyclebackground/backgrounds/"
 THEMES=$(ls $THEMEPATH)
-CURRTHEME=$(basename $(hyprctl hyprpaper listloaded))
-#$(cat /home/jimmy/.config/cyclebackground/current_background | head -n 1)
+if [[ -f /tmp/current_background ]];  then
+    CURRTHEME=$(cat /tmp/current_background | head -n 1)
+else
+    CURRTHEME=$(cat ~/.config/cyclebackground/current_background | head -n 1)
+fi
 
 if [ ! -z "$1" ]; then
   echo "$1"
-  hyprctl hyprpaper reload ,"$THEMEPATH$CURRTHEME"
 else
   NEWTHEME=""
   found=0
@@ -24,7 +26,7 @@ else
       found=2
     fi
     # if current theme found, set the flag = 1
-    if [ $theme == $CURRTHEME ]; then
+    if [[ $theme == $CURRTHEME ]]; then
       found=1
     fi
   done
@@ -37,9 +39,10 @@ else
   fi
   
   # set next bg
-  #echo $NEWTHEME > /home/jimmy/.config/cyclebackground/current_background
-  #swww img "$THEMEPATH$NEWTHEME" --transition-type outer --transition-pos 0.9,0.9 --transition-step 20 --transition-fps 60
-  hyprctl hyprpaper reload ,"$THEMEPATH$NEWTHEME"
+  echo $NEWTHEME > /tmp/current_background
+
+  hyprctl hyprpaper wallpaper ", $THEMEPATH$NEWTHEME"
+
   echo "previous: $CURRTHEME"
   echo "new: $NEWTHEME"
 fi
