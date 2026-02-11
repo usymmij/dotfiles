@@ -819,7 +819,6 @@ require('lazy').setup({
         build = ':Cord update',
         opts = {},
     },
-
     {
         'lervag/vimtex',
         lazy = false, -- we don't want to lazy load VimTeX
@@ -831,13 +830,6 @@ require('lazy').setup({
             vim.g.vimtex_syntax_enabled = 1
             vim.cmd 'syntax enable'
         end,
-    },
-    {
-        'goerz/jupytext.nvim',
-        version = '0.2.0',
-        opts = {
-            jupytext = 'jupytext',
-        }, -- see Options
     },
     {
         'jbyuki/venn.nvim',
