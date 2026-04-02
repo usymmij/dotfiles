@@ -70,6 +70,5 @@ condar() {
 }
 
 # keep until we finish the backup script
-zfs list -t snapshot
 echo "check if gtk4 tablet bug is fixed"
 # WHEN ITS FIXED, remove the alias

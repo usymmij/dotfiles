@@ -786,6 +786,12 @@ require('lazy').setup({
             typst = {
                 enable = false,
             },
+            latex = {
+                enable = false,
+            },
+            markdown = {
+                enable = false,
+            },
         },
     },
 
