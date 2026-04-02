@@ -9,9 +9,6 @@ alias nts='returnpath=$(pwd);cd ~/notes; nvim -c Pan && cd $returnpath'
 alias ucam="fusermount -u /mnt/cam"
 alias lcam="gphoto2 --auto-detect"
 
-alias envpip='$CONDA_PREFIX/bin/pip'
-alias condac='condar; conda activate'
-alias condal='condar; conda env list'
 alias py='python'
 alias ur='uv run'
 alias up='uv run python'
@@ -39,6 +36,7 @@ alias turtle='ssh 192.168.1.80'
 alias ccdb='echo "enter the datacenter name (e.g. graham)" && read && kitten ssh -i ~/.ssh/ccdb usymmij@$REPLY.alliancecan.ca'
 
 alias hyprconf='vim ~/.config/hypr/hyprland.conf'
+alias localconf='vim ~/.config/hypr/local.conf'
 alias lockconf='vim ~/.config/hypr/hyprlock.conf'
 alias idleconf='vim ~/.config/hypr/hypridle.conf'
 alias paperconf='vim ~/.config/hypr/hyprpaper.conf'

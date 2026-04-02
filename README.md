@@ -1,9 +1,7 @@
 # My Dotfile repo
-use GNU `stow` for managing my dotfiles that I want to keep
+For syncing and sharing yet another arch + hyprland configuration
 
-arch + hyprland dotfiles very cliche I know
-
-## reqs
+## Some reqs / configured apps and utilities
 - bash
 - neovim
 - kitty
@@ -11,13 +9,86 @@ arch + hyprland dotfiles very cliche I know
 - starship
 - hyprland
     - hyprlock
-- hyprshot 
+    - hyprshot 
 - waybar
 - qutebrowser
 - mako
-- swww
 - kvantum
 - qt6ct-kde
+
+# Install Instructions
+1. setup up a base arch install, 
+    - recommended to have `efivars` and `systemdboot`
+    - `networkmanager`
+    - make a user account
+2. install `yay`
+```bash
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+3. install these packages with yay
+> compositor and desktop
+```
+hyprland hypridle hyprlock hyprshot hyprpaper wofi kitty fastfetch waybar starship 
+```
+> fonts
+```
+noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd
+```
+> text, code, and pdf
+```
+nvim fzf zaread zathura-pdf-poppler stylua clangd
+```
+> other tools
+```
+man stow brightnessctl gnome-keyring nm-connection-editor network-manager-applet pavucontrol pamixer blueman xdg-desktop-portal-hyprland
+```
+> customization
+```
+kvantum nwg-look 
+```
+> optional apps
+```
+qutebrowser nextcloud-client rnote discord thunderbird spotify spicetify-cli 
+
+```
+
+3. download dotfiles
+```bash
+cd ~
+mkdir .config # Important for not adding undesireable dotfiles 
+git clone https://github.com/usymmij/dotfiles
+cd dotfiles
+git submodule update --init
+cp -r ./* ../ # copy all the dotfiles to the main directory
+stow . --adopt # OPTIONAL: symlink them
+```
+> make sure to also untrack these files
+```bash
+git update-index --assume-unchanged .config/cyclebackground/current_background 
+git update-index --assume-unchanged .config/hypr/local.conf
+git update-index --assume-unchanged .config/nvim/lazy-lock.json
+```
+
+## Login
+### Default
+- by default, this config is configured start once logged in from `tty1` without a display manager
+
+### Autologin
+- to configure autologin on tty, find `getty@tty1.service` or `getty@tty1.service.d` in `/etc/systemd/system/` or one of its subdirectories, and add to the config the following
+
+```
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --noreset --noclear --autologin username - ${TERM}
+```
+
+- Referenced from the [Arch wiki](https://wiki.archlinux.org/title/Getty#Virtual_console)
+
+### Auto lock
+- add `exec-once = hyprlock` to the hyprland config to launch to a locked screen
 
 # References
 
@@ -27,7 +98,10 @@ arch + hyprland dotfiles very cliche I know
 ## hyprland
 > many configs are modified or directly from SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
 
-> also [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
+## Nvim
+>  [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
+
+# Common Configurations and Issues
 
 ## Updating submodules
 `git submodule update --recursive`
@@ -50,9 +124,11 @@ git clone https://github.com/spicetify/spicetify-themes .
 - [sbctl](https://github.com/Foxboron/sbctl)
 
 ## Theme
+> I like the themes made by [Eliver Lara](https://github.com/EliverLara/)
+
 - candy-icons
 - Sweet KDE theme (Kvantum)
-    - + Sweet GTK theme
+    - Sweet GTK theme
 
 ## Environment Variables
 > /etc/environment
@@ -98,55 +174,3 @@ git update-index --no-assume-unchanged file_name
 git ls-files -v | grep '^[[:lower:]]'
 ```
 
-# Install Instructions
-1. setup up a base arch install, 
-    - recommended to have `efivars` and `systemdboot`
-    - `networkmanager`
-    - make a user account
-2. install `yay`
-```bash
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-```
-3. install these packages with yay
-> compositor and desktop
-```
-hyprland hypridle hyprlock hyprshot hyprpaper wofi kitty fastfetch waybar starship 
-```
-> fonts
-```
-noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd
-```
-> text and pdf
-```
-nvim fzf zaread zathura-pdf-poppler stylua clangd
-```
-> other tools
-```
-man stow stow
-```
-> customization
-```
-kvantum nwg-look
-```
-> optional apps
-```
-qutebrowser nextcloud-client rnote discord thunderbird
-```
-
-3. download dotfiles
-```bash
-cd ~
-mkdir .config # Important for not adding undesireable dotfiles 
-git clone https://github.com/usymmij/dotfiles
-cd dotfiles
-git submodule update --init
-stow . --adopt
-```
-> make sure to also untrack these files
-```bash
-git update-index --assume-unchanged .config/cyclebackground/current_background 
-git update-index --assume-unchanged .config/hypr/local.conf
-```
