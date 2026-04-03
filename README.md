@@ -37,21 +37,22 @@ hyprland hypridle hyprlock hyprshot hyprpaper wofi kitty fastfetch waybar starsh
 ```
 noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd
 ```
-> text and pdf
+> text, code, and pdf
 ```
 nvim fzf zaread zathura-pdf-poppler stylua clangd
 ```
 > other tools
 ```
-man stow stow
+man stow brightnessctl gnome-keyring nm-connection-editor network-manager-applet pavucontrol pamixer blueman xdg-desktop-portal-hyprland
 ```
 > customization
 ```
-kvantum nwg-look
+kvantum nwg-look 
 ```
 > optional apps
 ```
-qutebrowser nextcloud-client rnote discord thunderbird
+qutebrowser nextcloud-client rnote discord thunderbird spotify spicetify-cli 
+
 ```
 
 3. download dotfiles

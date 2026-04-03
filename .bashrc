@@ -37,38 +37,8 @@ if [ -f ~/announcement ]; then
   printf "$(cat ~/announcement)"
 fi
 
+# haskell
 [ -f "/home/jimmy/.ghcup/env" ] && . "/home/jimmy/.ghcup/env" # ghcup-env
 
-# conda takes forever to load, so instead of running it for each terminal 
-# run `condar` before using conda activate
-condasetup () {
-# if conda isn't working, run conda init and this will be overwritten
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-}
-
-CONDA_READY=0
-condar() {
-    if [ $CONDA_READY -eq 0 ]; then
-        printf "setting up conda ...\n"
-        condasetup
-        printf "complete!\n"
-        CONDA_READY=1
-    fi
-}
-
-# keep until we finish the backup script
+# WHEN ITS FIXED, remove this
 echo "check if gtk4 tablet bug is fixed"
-# WHEN ITS FIXED, remove the alias
