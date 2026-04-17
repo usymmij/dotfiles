@@ -1,3 +1,6 @@
 .config/spicetify/*
 !.config/spicetify/config-xpui.ini
 !.config/spicetify/Themes
+.config/cyclebackground/current_background 
+.config/hypr/local.conf
+.config/nvim/lazy-lock.json

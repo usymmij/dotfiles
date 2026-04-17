@@ -1,0 +1,21 @@
+[user]
+	email = usymmij@gmail.com
+	name = usymmij
+[pull]
+	rebase = true
+[core]
+	editor = nvim
+[alias]
+	pushfwl = push --force-with-lease
+	co = checkout
+	psu = push --set-upstream
+[safe]
+	directory = ./
+	directory = *
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main

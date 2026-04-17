@@ -5,7 +5,6 @@ For syncing and sharing yet another arch + hyprland configuration
 - bash
 - neovim
 - kitty
-- spicetify
 - starship
 - hyprland
     - hyprlock
@@ -39,7 +38,7 @@ noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-n
 ```
 > text, code, and pdf
 ```
-nvim fzf zaread zathura-pdf-poppler stylua clangd
+neovim fzf zaread zathura-pdf-poppler tree-sitter tree-sitter-grammars
 ```
 > other tools
 ```
@@ -51,8 +50,7 @@ kvantum nwg-look
 ```
 > optional apps
 ```
-qutebrowser nextcloud-client rnote discord thunderbird spotify spicetify-cli 
-
+qutebrowser nextcloud-client rnote discord thunderbird spotify spicetify-cli tailscale
 ```
 
 3. download dotfiles
@@ -64,12 +62,6 @@ cd dotfiles
 git submodule update --init
 cp -r ./* ../ # copy all the dotfiles to the main directory
 stow . --adopt # OPTIONAL: symlink them
-```
-> make sure to also untrack these files
-```bash
-git update-index --assume-unchanged .config/cyclebackground/current_background 
-git update-index --assume-unchanged .config/hypr/local.conf
-git update-index --assume-unchanged .config/nvim/lazy-lock.json
 ```
 
 ## Login
@@ -89,17 +81,6 @@ ExecStart=-/sbin/agetty --noreset --noclear --autologin username - ${TERM}
 
 ### Auto lock
 - add `exec-once = hyprlock` to the hyprland config to launch to a locked screen
-
-# References
-
-## gnu stow
-> nice video about stow [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
-
-## hyprland
-> many configs are modified or directly from SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
-
-## Nvim
->  [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
 
 # Common Configurations and Issues
 
@@ -173,4 +154,19 @@ git update-index --no-assume-unchanged file_name
 # see what files are assumed unchanged
 git ls-files -v | grep '^[[:lower:]]'
 ```
+
+# References
+
+## gnu stow
+> nice video about stow [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
+
+## hyprland
+> many configs are modified or directly from SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
+
+## Arch wiki
+> [https://wiki.archlinux.org/](https://wiki.archlinux.org/)
+
+## Kickstart.nvim
+>  [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
+
 
