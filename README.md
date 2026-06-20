@@ -42,7 +42,7 @@ neovim fzf zaread zathura-pdf-poppler tree-sitter tree-sitter-grammars
 ```
 > other tools
 ```
-man stow brightnessctl gnome-keyring nm-connection-editor network-manager-applet pavucontrol pamixer blueman xdg-desktop-portal-hyprland
+man stow brightnessctl gnome-keyring nm-connection-editor network-manager-applet pavucontrol pamixer blueman xdg-desktop-portal-hyprland zoxide
 ```
 > customization
 ```

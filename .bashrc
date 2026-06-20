@@ -10,6 +10,7 @@ PS1='[\u@\h \W]\$ '
 export PATH="/home/jimmy/.local/bin:$PATH"
 
 eval "$(starship init bash)"
+eval "$(zoxide init --cmd cd bash)"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -21,7 +22,7 @@ fi
 
 # Default parameter to send to the "less" command
 # -R: show ANSI colors correctly; -i: case insensitive search
-LESS="-R -i"
+export LESS="-Rij12"
 
 # bind zsh-like tabbing
 bind 'TAB:menu-complete'

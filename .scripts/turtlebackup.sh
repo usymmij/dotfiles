@@ -16,6 +16,12 @@ for file in ${dockpath}/*; do
     snapshotname=${gzfile:0:17}
     echo $snapshotname
 
+    # skip this snapshot is older than what we have
+    latest=$(zfs list -t snapshot -o name | tail -1 | grep -oP '(?<=@).{8}')
+    if [[ "$latest" -ge "${snapshotname: -8}" ]]; then
+        continue
+    fi
+
     # uhhhhhhhhhhhhhhhh
     cat "${snapshotname}.gz" | md5sum > ".${snapshotname}.md5"
     if [[ $(diff "$snapshotname.md5" ".$snapshotname.md5") ]]; then
@@ -30,11 +36,6 @@ for file in ${dockpath}/*; do
     fi
 
     # zfs recv
-    # skip this snapshot is older than what we have
-    latest=$(zfs list -t snapshot -o name | tail -1 | grep -oP '(?<=@).{8}')
-    if [[ "$latest" -ge "${snapshotname: -8}" ]]; then
-        continue
-    fi
     cat "$file"| gunzip | zfs recv -F $zfsdataset
 
     if [[ ! $? -eq 0 ]]; then
