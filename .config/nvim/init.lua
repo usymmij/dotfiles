@@ -43,6 +43,19 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
+-- Sync clipboard through ssh
+vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+        ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
+}
+
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()
     vim.o.clipboard = 'unnamedplus'
@@ -135,6 +148,10 @@ vim.keymap.set('n', '<leader>wf', 'gqap', {})
 
 -- accept autocomplete
 vim.keymap.set('i', '<C-CR>', '<C-y>')
+
+-- show path
+vim.keymap.set('n', '<leader>pp', ':echo expand("%p")<Enter>', {})
+vim.keymap.set('n', '<leader>pc', ':let @+ = expand("%p")<Enter>', {})
 
 -- [[ Basic Autocommands ]]
 
@@ -782,6 +799,11 @@ require('lazy').setup({
             vim.cmd 'syntax enable'
         end,
     },
+    {
+        "stevearc/aerial.nvim",
+        opts = {},
+        keys = { { "<leader>a", "<cmd>AerialToggle<cr>" } },
+    }
 }, {
     ui = {
         icons = vim.g.have_nerd_font and {} or {

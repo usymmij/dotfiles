@@ -68,7 +68,7 @@ style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [python]
-format='via [${symbol}${version}${virtualenv}]($style)'
+format='via [${symbol}${version} ${virtualenv}]($style)'
 pyenv_version_name=false
 
 [conda]

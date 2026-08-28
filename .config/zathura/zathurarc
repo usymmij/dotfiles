@@ -1,4 +1,4 @@
-#set selection-clipboard clipboard
+set selection-clipboard clipboard
 #
 #set synctex true
 #set synctex-editor-command "nvr --remote-silent +%{line} %{input}"
@@ -40,3 +40,6 @@
 #set highlight-color           rgba(147,153,178,0.3)
 #set highlight-fg              rgba(205,214,244,1)
 #set highlight-active-color    rgba(203,166,247,0.3)
+
+
+
