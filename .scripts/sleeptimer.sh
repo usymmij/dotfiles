@@ -40,4 +40,10 @@ while true; do
 done
 tput cnorm
 
-while [ true ]; do paplay /usr/share/sounds/freedesktop/stereo/bell.oga && sleep 0.5; done
+while [ true ]; do 
+    paplay /usr/share/sounds/freedesktop/stereo/bell.oga
+    sleep 0.5
+    if read -t 0.5 -n 1 -s key; then
+        break
+    fi
+done

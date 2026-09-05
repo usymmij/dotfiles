@@ -26,7 +26,7 @@ alias wreboot='windows && reboot'
 alias ssh='kitten ssh'
 alias ccdb='echo "enter the datacenter name (e.g. graham)" && read && kitten ssh -i ~/.ssh/ccdb usymmij@$REPLY.alliancecan.ca'
 
-alias hyprconf='vim ~/.config/hypr/hyprland.conf'
+alias hyprconf='vim ~/.config/hypr/hyprland.lua'
 alias localconf='vim ~/.config/hypr/local.conf'
 alias lockconf='vim ~/.config/hypr/hyprlock.conf'
 alias idleconf='vim ~/.config/hypr/hypridle.conf'

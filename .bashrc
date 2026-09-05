@@ -25,7 +25,9 @@ fi
 export LESS="-Rij12"
 
 # bind zsh-like tabbing
-bind 'TAB:menu-complete'
+if [[ $- = *i* ]]; then
+    bind 'TAB:menu-complete'
+fi
 
 # spicetify
 export PATH=$PATH:/home/jimmy/.spicetify
