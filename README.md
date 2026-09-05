@@ -7,13 +7,21 @@ For syncing and sharing yet another arch + hyprland configuration
 - kitty
 - starship
 - hyprland
+    - hypridle
+    - hyprlauncher
     - hyprlock
-    - hyprshot 
+    - hyprpicker
 - waybar
-- qutebrowser
 - mako
 - kvantum
-- qt6ct-kde
+- qt6ct
+- slurp
+- grim
+- wl-clipboard
+- libnotify
+- hyprpolkitagent
+- xdg-desktop-portal-hyprland
+- dolphin
 
 # Install Instructions
 1. setup up a base arch install, 
@@ -30,7 +38,7 @@ makepkg -si
 3. install these packages with yay
 > compositor and desktop
 ```
-hyprland hypridle hyprlock hyprshot hyprpaper wofi kitty fastfetch waybar starship 
+hyprland hypridle hyprlock hyprpaper wofi kitty fastfetch waybar starship 
 ```
 > fonts
 ```

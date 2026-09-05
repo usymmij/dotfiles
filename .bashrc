@@ -5,7 +5,8 @@ alias grep='grep --color=auto'
 alias la='ls -A'
 alias l='ls -CF'
 
-PS1='[\u@\h \W]\$ '
+# backup if starship doesnt work
+PS1='[\u@\h \W]\$'
 
 export PATH="/home/jimmy/.local/bin:$PATH"
 
@@ -25,21 +26,23 @@ fi
 export LESS="-Rij12"
 
 # bind zsh-like tabbing
-bind 'TAB:menu-complete'
+if [[ $- = *i* ]]; then
+    bind 'TAB:menu-complete'
+fi
 
 # spicetify
 export PATH=$PATH:/home/jimmy/.spicetify
 
-# startup ommands
-fastfetch -c paleofetch.jsonc 
+# haskell
+[ -f "/home/jimmy/.ghcup/env" ] && . "/home/jimmy/.ghcup/env" # ghcup-env
+
+# startup commands
 
 if [ -f ~/announcement ]; then
   printf "\n\n\n"
   printf "$(cat ~/announcement)"
 fi
 
-# haskell
-[ -f "/home/jimmy/.ghcup/env" ] && . "/home/jimmy/.ghcup/env" # ghcup-env
+fastfetch -c kitty.jsonc
 
-# WHEN ITS FIXED, remove this
-echo "check if gtk4 tablet bug is fixed"
+
