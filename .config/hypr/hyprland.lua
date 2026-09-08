@@ -12,7 +12,12 @@ hl.monitor({
 hl.on("hyprland.start", function()
     hl.exec_cmd("hypridle")
     hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("lua .config/cyclebackground/bgscript.lua startup")
+
     hl.exec_cmd("waybar")
+
+    -- start wayscriber for screen annotations
+    hl.exec_cmd("systemctl --user enable --now wayscriber.service")
 
     -- wayland XDG magic
     -- https://wiki.archlinux.org/title/XDG_Desktop_Portal#Portal_does_not_start
@@ -31,6 +36,10 @@ hl.on("hyprland.start", function()
     -- auto open apps
     hl.exec_cmd("thunderbird", { workspace = "7 silent" })
     hl.exec_cmd("discord --start-minimized", { workspace = "6" })
+end)
+
+hl.on("hyprland.shutdown", function()
+    hl.exec_cmd("cp /tmp/current_background ~/.config/cyclebackground/current_background")
 end)
 
 hl.config({
@@ -218,6 +227,11 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("hyprlauncher"))                 
 hl.bind(workspaceMod .. " + S", hl.dsp.window.float({ action = "toggle" }))                      -- Allow a window to float
 hl.bind(workspaceMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))                             -- Lock the screen
 
+-- hyprland
+-- NOTE: in the next update (0.57.0) hl.dsp.reload_config() will be added to make this easier
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("hyprctl reload"))
+hl.bind(mainMod .. " + Q", hl.dsp.exit())
+
 -- Move focus with mainMod + HJKL
 hl.bind(workspaceMod .. " + H", hl.dsp.focus({ direction = "l" }))
 hl.bind(workspaceMod .. " + L", hl.dsp.focus({ direction = "r" }))
@@ -308,6 +322,30 @@ hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
 
 -- wayscriber
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("wayscriber --daemon-toggle"))
+
+
+-- moving across monitors
+local function shiftfocus()
+    local currmon = hl.get_monitor_at_cursor()
+    if currmon == nil then
+        return
+    end
+
+    if currmon.id == 0 then
+        hl.dispatch(hl.dsp.focus({ monitor = 1 }))
+    else
+        hl.dispatch(hl.dsp.focus({ monitor = 0 }))
+    end
+
+    hl.dispatch(hl.dsp.exec_cmd("notify-send 'on monitor " .. hl.get_monitor_at_cursor().name .. "'"))
+end
+
+-- swap monitor focus
+hl.bind("SUPER + SHIFT + TAB", shiftfocus)
+-- swap monitor workspaces
+hl.bind("SUPER + TAB",
+    hl.dsp.workspace.swap_monitors({ monitor1 = 0, monitor2 = 1 }))
+
 
 -- env vars
 -- XDG stuff

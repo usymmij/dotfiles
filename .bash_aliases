@@ -31,6 +31,7 @@ alias localconf='vim ~/.config/hypr/local.lua'
 alias lockconf='vim ~/.config/hypr/hyprlock.conf'
 alias idleconf='vim ~/.config/hypr/hypridle.conf'
 alias paperconf='vim ~/.config/hypr/hyprpaper.conf'
+alias kittyconf='vim ~/.config/kitty/'
 
 if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases

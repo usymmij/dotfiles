@@ -6,8 +6,8 @@
         "type": "file",
         "source": "~/.config/fastfetch/kitty.txt",
         "padding": {
-            "top": 2,
-            "left": 1,
+            "top": 3,
+            "left": 2,
             "bottom": 1,
             "right": 1
         },
@@ -31,7 +31,7 @@
         },
         "constants": [
             "───────────────────────────────────────────────────────",
-            "│\u001b[55C│\u001b[55D",
+            "│\u001b[55C│\u001b[55D"
         ]
     },
     "modules": [
@@ -46,12 +46,24 @@
             "format": "{name}"
         },
         {
-            "key": "{$2}{#34}󰍛 gpu         ",
-            "type": "gpu"
+            "key": "{$2}{#35}              ",
+            "type": "cpuusage"
         },
         {
             "key": "{$2}{#32} memory      ",
-            "type": "memory"
+            "type": "memory",
+            "format": "{used} / {total}"
+
+        },
+        {
+            "key": "{$2}                    ",
+            "type": "memory",
+            "format": "{percentage-bar}"
+
+        },
+        {
+            "key": "{$2}{#34}󰍛 gpu         ",
+            "type": "gpu"
         },
         {
             "key": "{$2}{#31} colors           ",

@@ -1,1 +1,155 @@
-/home/jimmy/.config/waybar/style/style-dark.css
+/* common */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #00000000; /* transparent */
+    color: #cdd6f4;         /* font */
+}
+
+
+tooltip {
+    background: #1e1e2e;
+    opacity: 0.8;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
+}
+
+tooltip label{
+    color: #cdd6f4;
+}
+
+#workspaces button {
+    padding: 5px;
+    color: #515166;
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    color: #a6adc8;
+}
+
+#workspaces button.focused {
+    color: #a6adc8;
+    background: #eba0ac;
+    border-radius: 10px;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6e3a1;
+    border-radius: 10px;
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+    border-radius: 10px;
+}
+
+/* all modules */
+#custom-launcher,
+#workspaces,
+#cpu,
+#memory,
+#temperature,
+#window,
+#clock,
+#pulseaudio,
+#backlight,
+#battery,
+#tray,
+#custom-updates,
+#custom-background
+{
+    background: #1e1e2e;
+    opacity: 0.8;
+    padding: 0px 10px;
+    margin: 3px 0px;
+    margin-top: 10px;
+    border: 0px;
+}
+
+/* lhs */
+#custom-launcher, #clock, #pulseaudio {
+    border-radius: 10px 0px 0px 10px;
+    margin-left: 10px;
+    padding-left: 20px;
+}
+
+/* rhs */
+#window, #clock, #custom-background {
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* standalone */
+#clock {
+    border-radius: 10px 10px 10px 10px;
+    padding: 0px 20px;
+}
+
+/* exceptions */
+
+#custom-launcher {
+    color: #89b4fa;
+}
+
+#workspaces {
+    padding-left: 10px;
+    padding-right: 10px;
+} 
+
+#cpu, #memory, #temperature {
+    padding: 10px;
+}
+
+#temperature.critical {
+    color: #e92d4d;
+}
+
+#window {
+    padding: 0px 15px;
+}
+
+#pulseaudio {
+    /* color: #89b4fa; */
+    border-right: 0px;
+}
+
+#pulseaudio.microphone {
+    /* color: #cba6f7; */
+    border-radius: 0px;
+    padding-left: 10px;
+    margin-left: 0px;
+}
+
+#backlight {
+    border-left: 0px;
+}
+
+#battery {
+    color: #a6e3a1;
+    border-left: 0px;
+}
+
+#custom-updates {
+    padding-top: 5px;
+}
+
+#custom-background {
+    margin-right: 10px;
+    padding-right: 20px;
+}
+
+

@@ -329,7 +329,7 @@ require('lazy').setup({
             vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
             vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
             vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-            vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+            vim.keymap.set('n', '<leader>si', builtin.diagnostics, { desc = '[S]earch D[i]agnostics' })
             vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
             vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
             vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
@@ -356,6 +356,25 @@ require('lazy').setup({
             vim.keymap.set('n', '<leader>sn', function()
                 builtin.find_files { cwd = vim.fn.stdpath 'config' }
             end, { desc = '[S]earch [N]eovim files' })
+
+            -- diff two files
+            vim.keymap.set('n', '<leader>sd',
+                function()
+                    builtin.find_files({
+                        attach_mappings = function(_, map)
+                            local actions = require("telescope.actions")
+                            local action_state = require("telescope.actions.state")
+                            actions.select_default:replace(function(prompt_bufnr)
+                                local entry = action_state.get_selected_entry()
+                                actions.close(prompt_bufnr)
+                                vim.cmd("vert diffs " .. vim.fn.fnameescape(entry.path))
+                            end)
+                            return true
+                        end,
+
+                    })
+                end,
+                { desc = '[S]earch [D]iff' })
         end,
     },
 

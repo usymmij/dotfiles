@@ -11,6 +11,7 @@ For syncing and sharing yet another arch + hyprland configuration
     - hyprlauncher
     - hyprlock
     - hyprpicker
+    - hyprshutdown
 - waybar
 - mako
 - kvantum
@@ -22,6 +23,7 @@ For syncing and sharing yet another arch + hyprland configuration
 - hyprpolkitagent
 - xdg-desktop-portal-hyprland
 - dolphin
+- wayscriber
 
 # Install Instructions
 1. setup up a base arch install, 
@@ -68,8 +70,10 @@ mkdir .config # Important for not adding undesireable dotfiles
 git clone https://github.com/usymmij/dotfiles
 cd dotfiles
 git submodule update --init
-cp -r ./* ../ # copy all the dotfiles to the main directory
-stow . --adopt # OPTIONAL: symlink them
+
+# copy files to home
+cp -r ./* ../ # OPTION 1: copy directly if updates won't be pushed
+stow . # OPTION 2: symlink them if updating from this system
 ```
 
 ## Login
@@ -89,6 +93,45 @@ ExecStart=-/sbin/agetty --noreset --noclear --autologin username - ${TERM}
 
 ### Auto lock
 - add `exec-once = hyprlock` to the hyprland config to launch to a locked screen
+
+## Unsynced configs
+> this section is only related for pushing the dotfiles if you used `stow`
+> some of the configs (system specific) should not be pushed, but also need to 
+> exist on the repo as a template
+>
+> local.lua for example will cause a crash on new systems if it doesn't exist after being cloned
+> it needs to exist in the repo, but not on local copies so it can't be gitignored
+> other unsynced configs can simply be gitignored
+
+### files that should be in this list:
+- `.config/hypr/local.lua`
+- `.config/cyclebackground/current_background`
+
+### current method
+
+- go to the home directory copy of relevant file(s): make a backup elsewhere if they are changed
+- delete the symlink (likely a parent directory) and create each *directory* that leads to the file
+    - do this for each one
+- go back to the `dotfiles` repository folder and run `stow`
+    - if it fails because changed files exist and you dont want them updated, repeat the above
+    - otherwise, add `--adopt` to copy the changes
+- got back to the home directory: delete each symlink for the non-updated files, and replace with a hard copy (your backup)
+- the `dotfiles/` copy will not be updated anymore
+
+### old method: assume unchanged *not recommended*
+> assume-unchanged tells git you haven't changed the file for performance, but shouldn't 
+> be exploited in this way if you have changed it
+
+```bash
+# removing a file
+git update-index --assume-unchanged file_name
+
+# adding a file back
+git update-index --no-assume-unchanged file_name 
+
+# see what files are assumed unchanged
+git ls-files -v | grep '^[[:lower:]]'
+```
 
 # Common Configurations and Issues
 
@@ -150,31 +193,16 @@ git clone https://github.com/spicetify/spicetify-themes .
 1. set widget theme to Sweet-Gtk
 2. set candy-icons in `Icon Theme`
 
-## ignoring system specific changes in git
+### theme from AUR
+- these themes can also be quickly installed as 
+    - `sweet-kvantum-git`
+    - `candy-icons-git`
+    - the gtk theme from AUR is kinda broken and out of date, I would just install it from git
 
-```bash
-# removing a file
-git update-index --assume-unchanged file_name
+# Attributions
 
-# adding a file back
-git update-index --no-assume-unchanged file_name 
-
-# see what files are assumed unchanged
-git ls-files -v | grep '^[[:lower:]]'
-```
-
-# References
-
-## gnu stow
-> nice video about stow [link](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy)
-
-## hyprland
-> many configs are modified or directly from SolDoesTech's [HyprV2](https://github.com/SolDoesTech/HyprV2)
-
-## Arch wiki
-> [https://wiki.archlinux.org/](https://wiki.archlinux.org/)
-
-## Kickstart.nvim
->  [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
+- SolDoesTech for [HyprV2](https://github.com/SolDoesTech/HyprV2)
+- this [video](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy) about GNU stow by DreamsofAutnomy
+- [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
 
 
