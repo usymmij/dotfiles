@@ -798,6 +798,15 @@ require('lazy').setup({
         },
     },
 
+    -- INDEX: markview
+    {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+
+        -- Completion for `blink.cmp`
+        -- dependencies = { "saghen/blink.cmp" },
+    },
+
     -- INDEX: discord status
     {
         'vyfor/cord.nvim',
