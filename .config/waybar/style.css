@@ -68,7 +68,8 @@ tooltip label{
 #battery,
 #tray,
 #custom-updates,
-#custom-background
+#custom-background,
+#custom-divider
 {
     background: #1e1e2e;
     opacity: 0.8;
@@ -107,7 +108,7 @@ tooltip label{
 
 #workspaces {
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 0px;
 } 
 
 #cpu, #memory, #temperature {
@@ -120,6 +121,7 @@ tooltip label{
 
 #window {
     padding: 0px 15px;
+    padding-left: 10px;
 }
 
 #pulseaudio {

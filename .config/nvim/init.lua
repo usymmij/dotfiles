@@ -543,7 +543,8 @@ require('lazy').setup({
             -- local capabilities = require('blink.cmp').get_lsp_capabilities()
 
             local servers = {
-                -- clangd = {},
+                clangd = {},
+                clang_format = {},
                 ruff = {}, -- python
                 rust_analyzer = {
                     procMacro = {
@@ -795,7 +796,18 @@ require('lazy').setup({
                     enabled = false,
                 },
             },
+            max_width_window_percentage = 90,
+            max_height_window_percentage = 90,
         },
+    },
+
+    -- INDEX: markview
+    {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+
+        -- Completion for `blink.cmp`
+        -- dependencies = { "saghen/blink.cmp" },
     },
 
     -- INDEX: discord status

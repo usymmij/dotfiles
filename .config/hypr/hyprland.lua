@@ -1,6 +1,7 @@
 -- persistent settings across systems
 -- keep system-specific settings in local.lua
 require('/home/jimmy/.config/hypr/local.lua')
+require('/home/jimmy/.config/hypr/sunshine.lua')
 
 hl.monitor({
     output   = "",
@@ -12,6 +13,7 @@ hl.monitor({
 hl.on("hyprland.start", function()
     hl.exec_cmd("hypridle")
     hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("sunshine")
     hl.exec_cmd("lua .config/cyclebackground/bgscript.lua startup")
 
     hl.exec_cmd("waybar")
@@ -219,13 +221,16 @@ local mainMod = "ALT"
 local workspaceMod = "SUPER"
 
 -- some shortcuts
-hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty"))                                     -- open the terminal
-hl.bind(mainMod .. " + T",
-    hl.dsp.exec_cmd("kitty", { float = true, size = { "(monitor_w*0.5)", "(monitor_h*0.5)" } })) -- open the terminal
-hl.bind(mainMod .. " + F4", hl.dsp.window.close())                                               -- close the active window
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("hyprlauncher"))                                  -- Show the graphical app launcher
-hl.bind(workspaceMod .. " + S", hl.dsp.window.float({ action = "toggle" }))                      -- Allow a window to float
-hl.bind(workspaceMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))                             -- Lock the screen
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty")) -- open the terminal
+hl.bind(mainMod .. " + T",                                   -- open the terminal
+    hl.dsp.exec_cmd("kitty", {
+        float = true,
+        size = { "(monitor_w*0.5)", "(monitor_h*0.5)" }
+    }))
+hl.bind(mainMod .. " + F4", hl.dsp.window.close())                          -- close the active window
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("hyprlauncher"))             -- Show the graphical app launcher
+hl.bind(workspaceMod .. " + S", hl.dsp.window.float({ action = "toggle" })) -- Allow a window to float
+hl.bind(workspaceMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))        -- Lock the screen
 
 -- hyprland
 -- NOTE: in the next update (0.57.0) hl.dsp.reload_config() will be added to make this easier
@@ -323,7 +328,6 @@ hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
 -- wayscriber
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("wayscriber --daemon-toggle"))
 
-
 -- moving across monitors
 local function shiftfocus()
     local currmon = hl.get_monitor_at_cursor()
@@ -352,9 +356,9 @@ hl.bind("SUPER + TAB",
 hl.env("XDG_CONFIG_HOME", "/home/jimmy/.config")
 
 -- qt6 stuff
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-hl.env("QT_QPA_PLATFORM", "wayland") -- sometimes the value xcb is required for matplotlib
-hl.env("QT_STYLE_OVERRIDE", "qt6ct")
+-- hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+-- hl.env("QT_QPA_PLATFORM", "wayland") -- sometimes the value xcb is required for matplotlib
+-- hl.env("QT_STYLE_OVERRIDE", "qt6ct")
 
 -- default editor
 hl.env("VISUAL", "nvim")

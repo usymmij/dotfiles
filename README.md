@@ -1,6 +1,8 @@
 # My Dotfile repo
 For syncing and sharing yet another arch + hyprland configuration
 
+![](docs/screenshot.png)
+
 ## Some reqs / configured apps and utilities
 - bash
 - neovim
@@ -204,5 +206,6 @@ git clone https://github.com/spicetify/spicetify-themes .
 - SolDoesTech for [HyprV2](https://github.com/SolDoesTech/HyprV2)
 - this [video](https://www.youtube.com/watch?v=y6XCebnB9gs&ab_channel=DreamsofAutonomy) about GNU stow by DreamsofAutnomy
 - [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 
-
+- Guardfetch for the [ascii art](https://github.com/GuardKenzie/pfetch-with-kitties) used in fetch
+- [Fritzchens Fritz](https://www.flickr.com/photos/130561288@N04/) for die shots
 

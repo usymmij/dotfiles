@@ -1,6 +1,11 @@
 from math import *  # noqa: F403
 import numpy as np
 
+K = 1024
+M = K**2
+G = K**3
+T = K**4
+
 
 def mat(*args):
     return np.array(args)

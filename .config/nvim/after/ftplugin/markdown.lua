@@ -17,7 +17,11 @@ vim.keymap.set('n', 'mi', function()
 end, {})
 
 -- paste image
-vim.keymap.set('n', '<leader>i', function()
+vim.keymap.set('n', '<leader>ir', function()
+    local api = require("image")
+    image:render()
+end, {})
+vim.keymap.set('n', '<leader>ic', function()
     local filepath = vim.fn.expand '%'
     local path = string.match(filepath, '(.-)([^\\/]-%.?([^%.\\/]*))$')
     local filename = string.match(filepath, '[^\\/]-$')
