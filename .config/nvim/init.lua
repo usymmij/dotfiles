@@ -153,6 +153,13 @@ vim.keymap.set('i', '<C-CR>', '<C-y>')
 vim.keymap.set('n', '<leader>pp', ':echo expand("%p")<Enter>', {})
 vim.keymap.set('n', '<leader>pc', ':let @+ = expand("%p")<Enter>', {})
 
+-- split window
+vim.keymap.set('n', '<leader>h', ':sp<Enter>', {})
+vim.keymap.set('n', '<leader>v', ':vs<Enter>', {})
+
+-- view binary as hex
+vim.keymap.set('n', '<leader>vah', ':%!xxd<Enter>', {})
+
 -- [[ Basic Autocommands ]]
 
 -- Highlight when yanking (copying) text
@@ -607,12 +614,13 @@ require('lazy').setup({
             },
         },
         opts = {
+
             notify_on_error = false,
             format_on_save = function(bufnr)
                 -- Disable "format_on_save lsp_fallback" for languages that don't
                 -- have a well standardized coding style. You can add additional
                 -- languages here or re-enable it for the disabled ones.
-                local disable_filetypes = { c = true, cpp = true }
+                local disable_filetypes = { c = true, cpp = true, typst = true }
                 if disable_filetypes[vim.bo[bufnr].filetype] then
                     return nil
                 else
@@ -805,6 +813,11 @@ require('lazy').setup({
     {
         "OXY2DEV/markview.nvim",
         lazy = false,
+        config = {
+            typst = {
+                enable = false
+            }
+        }
 
         -- Completion for `blink.cmp`
         -- dependencies = { "saghen/blink.cmp" },

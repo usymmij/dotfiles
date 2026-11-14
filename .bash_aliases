@@ -1,3 +1,4 @@
+alias v='nvim'
 alias vim='nvim'
 alias evim='nvim -c "Pan"'
 alias tags='printf "\33[0;31mFIX\n\33[0;34mTODO\nNOTE\n\33[0;33mHACK\nWARN\n\33[1;37mPERF\nTEST"'
@@ -32,6 +33,7 @@ alias lockconf='vim ~/.config/hypr/hyprlock.conf'
 alias idleconf='vim ~/.config/hypr/hypridle.conf'
 alias paperconf='vim ~/.config/hypr/hyprpaper.conf'
 alias kittyconf='vim ~/.config/kitty/'
+alias sshconf='vim ~/.ssh/config'
 
 if [ -f ~/.hidden_aliases ]; then
     . ~/.hidden_aliases

@@ -324,6 +324,7 @@ hl.bind(mainMod .. " + SHIFT + P", takeScreenshot(true, true))
 hl.bind(mainMod .. " + bracketleft", takeScreenshot(false, false))
 hl.bind(mainMod .. " + SHIFT + bracketleft", takeScreenshot(true, false))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -r | wl-copy"))
 
 -- wayscriber
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("wayscriber --daemon-toggle"))
@@ -356,7 +357,7 @@ hl.bind("SUPER + TAB",
 hl.env("XDG_CONFIG_HOME", "/home/jimmy/.config")
 
 -- qt6 stuff
--- hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- hl.env("QT_QPA_PLATFORM", "wayland") -- sometimes the value xcb is required for matplotlib
 -- hl.env("QT_STYLE_OVERRIDE", "qt6ct")
 

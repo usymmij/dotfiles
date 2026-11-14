@@ -43,6 +43,11 @@ if [ -f ~/announcement ]; then
   printf "$(cat ~/announcement)"
 fi
 
-fastfetch -c kitty.jsonc
+if [ ! $SSH_TTY ]; then
+    fastfetch -c kitty.jsonc
+fi
 
 
+
+# opencode
+export PATH=/home/jimmy/.opencode/bin:$PATH
