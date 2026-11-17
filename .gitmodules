@@ -7,3 +7,6 @@
 [submodule ".themes/Sweet"]
 	path = .themes/Sweet
 	url = git@github.com:EliverLara/Sweet.git
+[submodule ".config/spicetify/spicetify-themes"]
+	path = .config/spicetify/spicetify-themes
+	url = https://github.com/spicetify/spicetify-themes

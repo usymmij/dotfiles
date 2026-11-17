@@ -1,0 +1,54 @@
+# compositor and desktop
+hyprland 
+hypridle 
+hyprlock 
+hyprpaper 
+hyprlauncher 
+kitty 
+fastfetch 
+waybar 
+starship 
+
+#fonts
+noto-fonts 
+noto-fonts-cjk 
+noto-fonts-emoji 
+noto-fonts-extra 
+ttf-jetbrains-mono-nerd
+
+# text, code, and pdf
+neovim 
+fzf 
+zaread 
+zathura-pdf-poppler 
+tree-sitter 
+tree-sitter-grammars
+
+# other tools
+man 
+stow 
+brightnessctl 
+gnome-keyring 
+nm-connection-editor 
+network-manager-applet 
+pipewire 
+pipewire-pulse 
+pavucontrol 
+pamixer 
+blueman 
+xdg-desktop-portal-hyprland 
+zoxide
+
+# customization
+kvantum 
+nwg-look 
+
+# optional apps
+qutebrowser 
+nextcloud-client 
+rnote 
+discord 
+thunderbird 
+spotify 
+spicetify-bin
+tailscale

@@ -28,54 +28,49 @@ For syncing and sharing yet another arch + hyprland configuration
 - wayscriber
 
 # Install Instructions
-1. setup up a base arch install, 
-    - recommended to have `efivars` and `systemdboot`
-    - `networkmanager`
-    - make a user account
-2. install `yay`
+1. setup up a base arch install
+    - [archwiki guide](https://wiki.archlinux.org/title/Installation_guide)
+    - `pacstrap -K /mnt base linux linux-firmware sudo`
+2. `chroot` setup
+    - download networkmanager
+3. reboot and install `yay`
 ```bash
+# make sure NetworkManager is enabled in systemd
+nmcli device wifi connect <network> password <passwd>
+mkdir Downloads
+cd Downloads
 sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 ```
-3. install these packages with yay
-> compositor and desktop
+4. download dependencies
 ```
-hyprland hypridle hyprlock hyprpaper wofi kitty fastfetch waybar starship 
+yay -S --needed $(grep -vE '^\s*#' dependencies.txt)
 ```
-> fonts
-```
-noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd
-```
-> text, code, and pdf
-```
-neovim fzf zaread zathura-pdf-poppler tree-sitter tree-sitter-grammars
-```
-> other tools
-```
-man stow brightnessctl gnome-keyring nm-connection-editor network-manager-applet pavucontrol pamixer blueman xdg-desktop-portal-hyprland zoxide
-```
-> customization
-```
-kvantum nwg-look 
-```
-> optional apps
-```
-qutebrowser nextcloud-client rnote discord thunderbird spotify spicetify-cli tailscale
-```
-
-3. download dotfiles
+5. download dotfiles
 ```bash
 cd ~
-mkdir .config # Important for not adding undesireable dotfiles 
-git clone https://github.com/usymmij/dotfiles
+git clone --depth 1 https://github.com/usymmij/dotfiles
 cd dotfiles
 git submodule update --init
+```
+6. extract files
+    - Option 1: copy directly if updates won't be pushed
+        - `cp -r ./* ../`
+    - Option 2: symlink them if updating from this system
+```
+# copy unsynced files directly
+mkdir ../.config/hypr/
+mkdir ../.config/cyclebackground/
+cp .config/hypr/local                         ../.config/hypr/local.lua
+cp .config/cyclebackground/current_background ../.config/cyclebackground/current_background
 
-# copy files to home
-cp -r ./* ../ # OPTION 1: copy directly if updates won't be pushed
-stow . # OPTION 2: symlink them if updating from this system
+# delete default configs
+rm ../.bash*
+
+# stow
+stow .
 ```
 
 ## Login
